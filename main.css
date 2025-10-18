@@ -1,3 +1,8 @@
+html {
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
 :where([class^="ri-"])::before { content: "\f3c2"; }
         body {
             font-family: 'Poppins', sans-serif;
@@ -60,19 +65,123 @@
     
     /* Mobile menu styles */
     #mobile-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        border-bottom: 1px solid #e5e7eb;
-    }
-    
-    #mobile-menu a {
-        transition: all 0.2s ease;
-    }
-    
-    #mobile-menu button {
-        width: 100%;
-        text-align: left;
-    }
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #e5e7eb;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+#mobile-menu.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+#mobile-menu a {
+    transition: all 0.2s ease;
+}
+
+#mobile-menu button {
+    width: 100%;
+    text-align: left;
+}
+
+
+/* 
+    .footer-bg .btn-whatsapp {
+  display: inline-block;
+  background-color: #22c55e;
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.footer-bg .btn-whatsapp:hover {
+  background-color: #16a34a; 
+}
+
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-icon {
+  width: 40px;
+  height: 40px;
+} */
+
+/* Scroll-to-top button */
+#scrollToTopBtn {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 90px; /* 👈 lifted above WhatsApp button */
+  right: 20px;
+  background-color: #2E7D32;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 60px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+  z-index: 99; /* slightly lower than WhatsApp */
+  display: none; /* hidden until scroll */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #1B5E20;
+  transform: scale(1.1);
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100; /* on top of scroll button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}

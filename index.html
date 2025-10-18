@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Green Pencils Ltd – Eco-friendly recycled paper pencils for sustainable writing.">
+<meta name="keywords" content="eco-friendly pencils, recycled paper pencils, sustainable stationery, Green Pencils Ltd">
+<meta name="author" content="Green Pencils Ltd">
+
     <title>Green Pencils Ltd</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>tailwind.config={theme:{extend:{colors:{primary:'#2E7D32',secondary:'#81C784'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
@@ -14,20 +18,19 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
     <!-- <style src="main.css"></style> -->
-    <style>
+    <!-- <style>
         .hero-section {
             background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.6) 60%, rgba(255, 255, 255, 0.1) 100%), 
                               url('./image/image1.jpg');
             background-size: cover;
             background-position: center;
         }
-    </style>
+    </style> -->
     
 </head>
 <body class="bg-white">
+    
     <!-- Navigation -->
-    <!-- Navigation Bar -->
-
     <!-- Navigation Bar -->
 <nav class="bg-white shadow-sm fixed w-full z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,17 +63,19 @@
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+ 
+<div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-lg md:hidden z-50">
     <a href="index.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Home</a>
     <a href="product.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Products</a>
     <a href="about.html" class="block px-4 py-2 text-gray-700 hover:text-primary">About Us</a>
     <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Contact</a>
-    <a href="order.html" class="block px-4 py-2 text-gray-700 hover:text-primary">
+    <a href="order.html" class="block px-4 py-2">
       <button class="w-full bg-primary text-white px-5 py-2 rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
         Get a Quote
       </button>
     </a>
-  </div>
+</div>
+
 </nav>
 
 <!-- Mobile Menu Toggle Script -->
@@ -83,6 +88,13 @@
   });
 </script>
 
+     <!-- <a href="https://wa.me/919994393711" 
+   class="whatsapp-float" 
+   target="_blank" 
+   aria-label="Chat on WhatsApp">
+   <img src="image/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
+	</a>  -->
+
     <!-- Hero Section -->
      <div data-aos="zoom-out-left">
   <section class="hero-section pt-24 pb-16 md:pt-32 md:pb-24 w-full bg-white">
@@ -91,9 +103,9 @@
       <!-- Left side: Text -->
       <div class="md:w-1/2 z-10">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Green Pencils Ltd</h1>
-        <p class="text-xl md:text-2xl text-gray-700 mb-6">
+        <!-- <p class="text-xl md:text-2xl text-gray-700 mb-6">
           Green Manufacturing = Green Products = Sustainable Future
-        </p>
+        </p> -->
         <p class="text-gray-600 mb-8 max-w-lg">
           We are an eco-friendly company dedicated to crafting high-quality pencils made from recycled paper and natural materials. 
           Our mission is to promote sustainability through innovative, zero-waste writing solutions.
@@ -455,7 +467,7 @@
                 </div>
             </div>
 
-            <h3 class="text-xl font-semibold text-gray-900 text-center mb-8">Our Clients</h3>
+            <!-- <h3 class="text-xl font-semibold text-gray-900 text-center mb-8">Our Clients</h3>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
                 <div class="flex flex-col items-center">
                     <div class="w-12 h-12 flex items-center justify-center mb-2">
@@ -493,7 +505,7 @@
                     </div>
                     <p class="text-gray-700 text-center text-sm">PackWise</p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 </div>
@@ -580,6 +592,13 @@
 </div>
 
     <!-- Back to Top Button -->
+
+    <!-- <div class="floating-buttons">
+        <a href="#" class="scroll-top"><i class="fa fa-arrow-up"></i></a>
+        <a href="https://wa.me/919994393711" target="_blank" class="whatsapp"><i class="fa fa-whatsapp"></i></a> 
+    </div> -->
+
+
     <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-opacity-90">
         <i class="ri-arrow-up-line ri-lg"></i>
     </button>
@@ -591,15 +610,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
 
     menuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('show');
     });
 
-    // Close mobile menu when clicking a link
-    mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-        });
-    });
+   // Close menu when clicking a link
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => mobileMenu.classList.remove('show'));
+});
+
 
     // Back to Top Button
     const backToTopButton = document.getElementById('backToTop');
