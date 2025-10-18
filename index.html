@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siva Polythene Bage - Sustainable Packaging Solutions</title>
+    <title>Green Pencils Ltd</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>tailwind.config={theme:{extend:{colors:{primary:'#2E7D32',secondary:'#81C784'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,18 +26,56 @@
 </head>
 <body class="bg-white">
     <!-- Navigation -->
+
     <nav class="bg-white shadow-sm fixed w-full z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+
+      <!-- Left: Logo + Company Name -->
+      <div class="flex items-center space-x-2">
+        <!-- Logo Image -->
+        <a href="#" class="flex items-center">
+          <img 
+            src="image/logo.png" 
+            alt="Green Pencils Logo" 
+            class="h-10 w-auto mr-2"
+          />
+          <span class="text-2xl font-['Pacifico'] text-primary">
+            Green Pencils Ltd
+          </span>
+        </a>
+      </div>
+
+      <!-- Right: Nav Links -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#" class="text-gray-700 hover:text-primary font-medium">Home</a>
+        <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
+        <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+        <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+        <a href="order.html">
+          <button class="bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
+            Get a Quote
+          </button>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+    <!-- <nav class="bg-white shadow-sm fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="#" class="flex-shrink-0 flex items-center">
-                        <span class="text-2xl font-['Pacifico'] text-primary">Siva Polybag</span>
+                        <span class="text-2xl font-['Pacifico'] text-primary">Green Pencils Ltd</span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#" class="text-gray-700 hover:text-primary font-medium">Home</a>
                     <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
-                    <a href="custom.html" class="text-gray-700 hover:text-primary font-medium">Custom Solutions</a>
+                    <!-- <a href="custom.html" class="text-gray-700 hover:text-primary font-medium">Custom Solutions</a> -->
                     <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
                     <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
                     <a href="order.html">
@@ -47,16 +85,58 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
     <!-- Hero Section -->
-    <div data-aos="zoom-out-left">
+     <div data-aos="zoom-out-left">
+  <section class="hero-section pt-24 pb-16 md:pt-32 md:pb-24 w-full bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-0">
+
+      <!-- Left side: Text -->
+      <div class="md:w-1/2 z-10">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Green Pencils Ltd</h1>
+        <p class="text-xl md:text-2xl text-gray-700 mb-6">
+          Green Manufacturing = Green Products = Sustainable Future
+        </p>
+        <p class="text-gray-600 mb-8 max-w-lg">
+          We are an eco-friendly company dedicated to crafting high-quality pencils made from recycled paper and natural materials. 
+          Our mission is to promote sustainability through innovative, zero-waste writing solutions.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="order.html">
+            <button class="bg-primary text-white px-6 py-3 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap font-medium">
+              Get Started
+            </button>
+          </a>
+          <a href="#products">
+            <button class="bg-white border border-gray-300 text-gray-700 px-6 py-3 !rounded-button hover:bg-gray-50 transition duration-300 whitespace-nowrap font-medium">
+              Learn More
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right side: Full image -->
+      <div class="md:w-1/2 h-full md:h-auto relative" data-aos="fade-left" data-aos-delay="200">
+        <img 
+          src="image/Gallery10.jpg" 
+          alt="Eco-friendly pencils" 
+          class="w-full h-full object-cover rounded-none md:rounded-l-lg shadow-none"
+        />
+      </div>
+
+    </div>
+  </section>
+</div>
+
+
+    <!-- <div data-aos="zoom-out-left">
     <section class="hero-section pt-24 pb-16 md:pt-32 md:pb-24 w-full">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="md:w-1/2">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Siva Polybag</h1>
-                <p class="text-xl md:text-2xl text-gray-700 mb-6">Sustainable packaging solutions for the modern business</p>
-                <p class="text-gray-600 mb-8 max-w-lg">Eco-friendly, customizable polythene bags designed for businesses that care about quality, style, and environmental impact.</p>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Green Pencils Ltd</h1>
+                <p class="text-xl md:text-2xl text-gray-700 mb-6">Green Manufacturing = Green Products = Sustainable Future</p>
+                <p class="text-gray-600 mb-8 max-w-lg">We are an eco-friendly company dedicated to crafting high-quality pencils made from recycled paper and natural materials. Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
                 <div class="flex flex-wrap gap-4">
                     <a href="order.html">
                     <button class="bg-primary text-white px-6 py-3 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap font-medium">Get Started</button>
@@ -66,7 +146,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Value Proposition Section -->
     <div data-aos="zoom-out-left">
@@ -74,7 +154,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">We combine sustainability with practicality to deliver packaging solutions that work for your business and the planet.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">We combine sustainability with creativity to craft pencils that make a positive impact on both people and the planet.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300 text-center">
@@ -82,21 +162,21 @@
                         <i class="ri-leaf-line ri-xl text-primary"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">Eco-friendly Materials</h3>
-                    <p class="text-gray-600">Our bags are made from sustainable materials that reduce environmental impact without compromising on quality.</p>
+                    <p class="text-gray-600">We use recycled paper and natural resources to reduce environmental impact.</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300 text-center">
                     <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="ri-paint-brush-line ri-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Custom Branding</h3>
-                    <p class="text-gray-600">Showcase your brand with customized designs, logos, and colors that make your packaging uniquely yours.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Sustainable Craftsmanship</h3>
+                    <p class="text-gray-600">Our pencils are designed to promote zero waste and support a greener planet.</p>
                 </div>
                 <div class="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition duration-300 text-center">
                     <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="ri-stack-line ri-xl text-primary"></i>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Bulk Orders</h3>
-                    <p class="text-gray-600">Competitive pricing for wholesale orders with flexible quantities to meet the needs of businesses of all sizes.</p>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3">Quality & Durability</h3>
+                    <p class="text-gray-600">Each pencil is carefully crafted to ensure smooth writing and long-lasting performance.</p>
                 </div>
             </div>
         </div>
@@ -108,11 +188,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Products</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Explore our range of high-quality polythene bags designed for various uses and industries.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore our range of high-quality eco-friendly pencils crafted from recycled paper and natural materials, perfect for everyday use, schools, and creative industries.</p>
             </div>
 
             <div class="flex flex-wrap justify-center gap-4 mb-10">
-                <button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap">All Products</button>
+                <!-- <button class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap">All Products</button>
                  <a href="retail_bag.html">
                     <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Retail Bags</button>
                 </a>
@@ -124,18 +204,18 @@
                 </a>
                 <a href="biodegrable.html">
                     <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Biodegradable</button>
-                </a>
+                </a> -->
             
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-64 overflow-hidden">
-                        <img src="image/pro1.jpg" alt="Retail Shopping Bags" class="w-full h-full object-cover object-top">
+                        <img src="image/Gallery2.jpg" alt="Retail Shopping Bags" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Retail Shopping Bags</h3>
-                        <p class="text-gray-600 mb-4">Durable shopping bags with reinforced handles, perfect for retail stores and boutiques.</p>
+                         <h3 class="text-xl font-semibold text-gray-900 mb-2"></h3>
+                        <p class="text-gray-600 mb-4"></p> 
                         <a href="order.html">
     <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
 </a>
@@ -143,11 +223,11 @@
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-64 overflow-hidden">
-                        <img src="image/pro2.jpg" alt="Food Packaging Bags" class="w-full h-full object-cover object-top">
+                        <img src="image/Gallery3.jpg" alt="Food Packaging Bags" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Food Packaging Bags</h3>
-                        <p class="text-gray-600 mb-4">Food-grade transparent bags ideal for packaging fresh produce, baked goods, and prepared foods.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2"></h3>
+                        <p class="text-gray-600 mb-4"></p>
                         <a href="order.html">
     <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
 </a>
@@ -155,44 +235,44 @@
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-64 overflow-hidden">
-                        <img src="image/pro3.jpg" alt="Industrial Bags" class="w-full h-full object-cover object-top">
+                        <img src="image/Gallery5.jpg" alt="Industrial Bags" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Industrial Bags</h3>
-                        <p class="text-gray-600 mb-4">Heavy-duty bags designed for industrial applications, offering superior strength and durability.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2"></h3>
+                        <p class="text-gray-600 mb-4"></p>
                         <a href="order.html">
                         <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
 </a>                    </div>
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-64 overflow-hidden">
-                        <img src="image/pro4.jpg" alt="Biodegradable Bags" class="w-full h-full object-cover object-top">
+                        <img src="image/Gallery10.jpg" alt="Biodegradable Bags" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Biodegradable Bags</h3>
-                        <p class="text-gray-600 mb-4">Fully biodegradable bags that break down naturally, perfect for environmentally conscious businesses.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2"></h3>
+                        <p class="text-gray-600 mb-4"></p>
                         <a href="order.html">
                         <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
 </a>                    </div>
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-64 overflow-hidden">
-                        <img src="image/pro5.jpg" alt="Custom Printed Bags" class="w-full h-full object-cover object-top">
+                        <img src="image/Gallery16.jpg" alt="Custom Printed Bags" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Custom Printed Bags</h3>
-                        <p class="text-gray-600 mb-4">Personalized bags with your brand logo and design, available in various sizes and colors.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2"></h3>
+                        <p class="text-gray-600 mb-4"></p>
                         <a href="order.html">
                         <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
 </a>                    </div>
                 </div>
                 <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
                     <div class="h-64 overflow-hidden">
-                        <img src="image/pro6.jpg" alt="Reusable Bags" class="w-full h-full object-cover object-top">
+                        <img src="image/Gallery4.jpg" alt="Reusable Bags" class="w-full h-full object-cover object-top">
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Reusable Bags</h3>
-                        <p class="text-gray-600 mb-4">Durable, washable bags designed for multiple uses, reducing waste and promoting sustainability.</p>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2"></h3>
+                        <p class="text-gray-600 mb-4"></p>
                         <a href="order.html">
                         <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
 </a>                    </div>
@@ -211,32 +291,33 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Commitment to Sustainability</h2>
-                    <p class="text-gray-600 mb-6">At Siva Polythene Bage, sustainability isn't just a buzzword—it's the foundation of everything we do. We're dedicated to reducing plastic waste by creating durable, reusable packaging solutions that minimize environmental impact.</p>
-                    <p class="text-gray-600 mb-6">Our eco-friendly manufacturing processes use recycled materials whenever possible, and we're constantly researching new ways to make our products even more sustainable without compromising on quality.</p>
+                    <p class="text-gray-600 mb-6">At Green Pencils Ltd, sustainability isn’t just a promise — it’s at the heart of everything we do. We’re committed to reducing deforestation and paper waste by creating durable pencils made from recycled paper and natural materials that minimize environmental impact.</p>
+                    <p class="text-gray-600 mb-6">Our eco-conscious manufacturing process focuses on using biodegradable, non-toxic materials, and we continuously explore innovative ways to make our pencils even more sustainable — without compromising on writing quality.</p>
+                    <div class="flex items-center gap-4">
                     <div class="flex items-center gap-4">
                         <button class="bg-primary text-white px-5 py-2.5 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Learn More</button>
-                        <button class="text-primary flex items-center gap-2 hover:underline">
+                        <!-- <button class="text-primary flex items-center gap-2 hover:underline">
                             <span>Watch Our Process</span>
                             <i class="ri-play-circle-line ri-lg"></i>
-                        </button>
+                        </button> -->
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-6">
                     <div class="bg-white p-6 rounded-lg shadow-sm">
                         <div class="text-primary text-4xl font-bold mb-2">70%</div>
-                        <p class="text-gray-700">Reduction in carbon footprint compared to traditional plastic bags</p>
+                        <p class="text-gray-700">Reduction in wood usage compared to traditional wooden pencils</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-sm">
                         <div class="text-primary text-4xl font-bold mb-2">100%</div>
-                        <p class="text-gray-700">Of our biodegradable bags break down completely within 180 days</p>
+                        <p class="text-gray-700">Of our pencils are made from biodegradable or recyclable materials</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-sm">
                         <div class="text-primary text-4xl font-bold mb-2">5 Tons</div>
-                        <p class="text-gray-700">Of plastic waste saved monthly through our recycling initiatives</p>
+                        <p class="text-gray-700">Of paper waste repurposed monthly through our recycling initiatives</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-sm">
                         <div class="text-primary text-4xl font-bold mb-2">30%</div>
-                        <p class="text-gray-700">Of our materials come from recycled sources</p>
+                        <p class="text-gray-700">Of our materials come directly from post-consumer recycled sources</p>
                     </div>
                 </div>
             </div>
@@ -251,7 +332,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Hear from businesses that have transformed their packaging with our custom solutions.</p>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">We combine sustainability with creativity to craft pencils that are gentle on the planet and perfect for everyday use</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -266,7 +347,7 @@
                             <i class="ri-star-fill"></i>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">"The custom packaging from Siva Polythene Bags has significantly improved our brand recognition. The quality is exceptional, and our customers love the professional look of our branded bags."</p>
+                    <p class="text-gray-700 mb-6">"I absolutely love these eco-friendly pencils! Knowing they’re made from recycled paper and natural materials makes writing feel guilt-free. They’re smooth to use, durable, and perfectly align with my sustainable lifestyle. Highly recommended for anyone who cares about the planet!."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
                             <i class="ri-user-line text-gray-500"></i>
@@ -312,7 +393,7 @@
                             <i class="ri-star-half-fill"></i>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">"The biodegradable options provided by Siva have helped us meet our sustainability goals while maintaining the quality our customers expect. Their team was knowledgeable and supportive throughout."</p>
+                    <p class="text-gray-700 mb-6">"The biodegradable options provided by Green Pencils have helped us meet our sustainability goals while maintaining the quality our customers expect. Their team was knowledgeable and supportive throughout."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
                             <i class="ri-user-line text-gray-500"></i>
@@ -334,7 +415,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Trusted by Businesses</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Join hundreds of satisfied clients who rely on our packaging solutions.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">Join hundreds of happy customers who trust our eco-friendly pencils for quality, sustainability, and creativity.</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
@@ -348,7 +429,7 @@
                 </div>
                 <div class="flex flex-col items-center">
                     <div class="text-primary text-4xl font-bold mb-2">20M+</div>
-                    <p class="text-gray-700 text-center">Bags Produced</p>
+                    <p class="text-gray-700 text-center">Pencils Produced</p>
                 </div>
                 <div class="flex flex-col items-center">
                     <div class="text-primary text-4xl font-bold mb-2">98%</div>
@@ -362,7 +443,7 @@
                         <i class="ri-double-quotes-l ri-2x text-primary"></i>
                     </div>
                     <div>
-                        <p class="text-gray-600 text-lg italic mb-6">"Siva Polythene Bage has been our go-to packaging partner for over 5 years. Their commitment to quality and sustainability aligns perfectly with our brand values. The custom bags they've created for us have received countless compliments from our customers."</p>
+                        <p class="text-gray-600 text-lg italic mb-6">"EcoWrite Pencils has been our preferred stationery partner for over 3 years. Their dedication to sustainability and quality craftsmanship perfectly reflects our environmental values. The recycled paper pencils they’ve supplied have received wonderful feedback from our clients and team alike."</p>
                         <div>
                             <p class="font-semibold text-gray-900">Emily Richardson</p>
                             <p class="text-gray-600">Marketing Director, Green Earth Organics</p>
@@ -423,9 +504,9 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div>
                     <a href="#" class="inline-block mb-4">
-                        <span class="text-2xl font-['Pacifico'] text-white">Siva Polybag</span>
+                        <span class="text-2xl font-['Pacifico'] text-white">Green Pencils Ltd</span>
                     </a>
-                    <p class="text-gray-400 mb-6">Sustainable packaging solutions for modern businesses. Eco-friendly, customizable, and reliable.</p>
+                    <p class="text-gray-400 mb-6">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
                             <i class="ri-facebook-fill text-white"></i>
@@ -446,7 +527,7 @@
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
                         <li><a href="#products" class="text-gray-400 hover:text-white transition duration-300">Products</a></li>
-                        <li><a href="custom.html" class="text-gray-400 hover:text-white transition duration-300">Custom Solutions</a></li>
+                        <!-- <li><a href="custom.html" class="text-gray-400 hover:text-white transition duration-300">Custom Solutions</a></li> -->
                         <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
                     </ul>
@@ -454,11 +535,11 @@
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Products</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Retail Bags</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Food Packaging</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Industrial Bags</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Biodegradable Options</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom Printing</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Recycled Paper Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Seed Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Colored Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom Logo Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Eco Gift Sets</a></li>
                     </ul>
                 </div>
                 <div>
@@ -483,7 +564,7 @@
             </div>
             <div class="border-t border-gray-800 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Siva Polythene Bage. All rights reserved.</p>
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Green Pencils Ltd. All rights reserved.</p>
                     <div class="flex space-x-4 text-sm text-gray-400">
                         <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
                         <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>

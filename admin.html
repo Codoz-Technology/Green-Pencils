@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Siva Polybag</title>
+    <title>Admin Panel - Green Pencils Ltd</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- DataTables CSS -->
@@ -301,7 +301,7 @@
                         <i class="fas fa-bars"></i>
                     </button>
                     <img src="image/logo.png" alt="Logo" height="40" class="me-2 rounded-3">
-                    <h4 class="text-white mb-0 ms-2">Siva Polybag Admin</h4>
+                    <h4 class="text-white mb-0 ms-2">Green Pencils Admin</h4>
                 </div>
                 <div class="search-bar d-none d-md-block">
                     <div class="input-group">
@@ -362,7 +362,7 @@
                     <i class="fas fa-cog"></i>
                     <span>Settings</span>
                 </a>
-                <a href="home.html" class="nav-link">
+                <a href="index.html" class="nav-link">
                     <i class="fas fa-home"></i>
                     <span>Back to Site</span>
                 </a>
@@ -817,7 +817,7 @@
                 // Show error message and redirect to home page after 2 seconds
                 alert('Invalid credentials! Redirecting to home page...');
                 setTimeout(() => {
-                    window.location.href = 'home.html';
+                    window.location.href = 'index.html';
                 }, 2000);
             }
         }
@@ -1432,7 +1432,7 @@
 
             // Add title
             doc.setFontSize(20);
-            doc.text('Siva Polybag - Reports', 14, 20);
+            doc.text('Green Pencils Ltd - Reports', 14, 20);
             doc.setFontSize(12);
 
             let yPos = 40;
@@ -1539,7 +1539,7 @@
 
                 // Add title
                 doc.setFontSize(20);
-                doc.text(`Siva Polybag - ${reportType} Report`, 14, 20);
+                doc.text(`Green Pencils Ltd - ${reportType} Report`, 14, 20);
 
                 // Add table
                 doc.autoTable({

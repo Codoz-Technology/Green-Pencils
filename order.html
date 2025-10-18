@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siva Polythene Bage - Sustainable Packaging Solutions</title>
+    <title>Green Pencils Ltd</title>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>tailwind.config={theme:{extend:{colors:{primary:'#2E7D32',secondary:'#81C784'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,13 +21,13 @@
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="#" class="flex-shrink-0 flex items-center">
-                        <span class="text-2xl font-['Pacifico'] text-primary">Siva Polybag</span>
+                        <span class="text-2xl font-['Pacifico'] text-primary">Green Pencils Ltd</span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="home.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
                     <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
-                    <a href="#" class="text-gray-700 hover:text-primary font-medium">Custom Solutions</a>
+                    <!-- <a href="#" class="text-gray-700 hover:text-primary font-medium">Custom Solutions</a> -->
                     <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
                     <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
                     <button class="bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Get a Quote</button>
@@ -95,21 +95,25 @@
                     </div>
                     
                     <div>
-                        <label class="block text-gray-700 mb-2">Bag Type *</label>
+                        <label class="block text-gray-700 mb-2">Lead Type *</label>
                         <div class="flex flex-wrap gap-4">
                             <label class="inline-flex items-center">
                                 <input type="checkbox" name="bag_types[]" value="Plain" class="form-checkbox text-primary">
-                                <span class="ml-2">Plain</span>
+                                <span class="ml-2">HB</span>
                             </label>
                             <label class="inline-flex items-center">
                                 <input type="checkbox" name="bag_types[]" value="Printed" class="form-checkbox text-primary">
-                                <span class="ml-2">Printed</span>
+                                <span class="ml-2">2B</span>
                             </label>
                             <label class="inline-flex items-center">
                                 <input type="checkbox" name="bag_types[]" value="Zip-lock" class="form-checkbox text-primary">
-                                <span class="ml-2">Zip-lock</span>
+                                <span class="ml-2">4B</span>
                             </label>
                             <label class="inline-flex items-center">
+                                <input type="checkbox" name="bag_types[]" value="Other" class="form-checkbox text-primary">
+                                <span class="ml-2">Colored</span>
+                            </label>
+                             <label class="inline-flex items-center">
                                 <input type="checkbox" name="bag_types[]" value="Other" class="form-checkbox text-primary">
                                 <span class="ml-2">Other</span>
                             </label>
@@ -118,17 +122,17 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
-                            <label for="width" class="block text-gray-700 mb-2">Width (cm) *</label>
-                            <input type="number" id="width" name="width" required min="0" step="0.1" class="w-full px-4 py-2 rounded border-gray-300 focus:border-primary focus:ring-primary" placeholder="30">
+                            <label for="width" class="block text-gray-700 mb-2">Length (cm) *</label>
+                            <input type="number" id="width" name="width" required min="0" step="0.1" class="w-full px-4 py-2 rounded border-gray-300 focus:border-primary focus:ring-primary" placeholder="19">
                         </div>
                         <div>
-                            <label for="height" class="block text-gray-700 mb-2">Height (cm) *</label>
-                            <input type="number" id="height" name="height" required min="0" step="0.1" class="w-full px-4 py-2 rounded border-gray-300 focus:border-primary focus:ring-primary" placeholder="40">
+                            <label for="height" class="block text-gray-700 mb-2">Diameter (cm) *</label>
+                            <input type="number" id="height" name="height" required min="0" step="0.1" class="w-full px-4 py-2 rounded border-gray-300 focus:border-primary focus:ring-primary" placeholder="7">
                         </div>
-                        <div>
+                        <!-- <div>
                             <label for="thickness" class="block text-gray-700 mb-2">Thickness (microns) *</label>
                             <input type="number" id="thickness" name="thickness" required min="0" step="0.1" class="w-full px-4 py-2 rounded border-gray-300 focus:border-primary focus:ring-primary" placeholder="50">
-                        </div>
+                        </div> -->
                     </div>
                     
                     <div>
@@ -163,45 +167,57 @@
                 <h3 class="text-2xl font-semibold mb-6">Customization Options</h3>
                 
                 <div class="mb-8">
-                    <img src="image/order.jpg" alt="Customization Options" class="w-full h-auto rounded mb-4">
+                    <img src="image/Gallery5.jpg" alt="Customization Options" class="w-full h-auto rounded mb-4">
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                         <div>
                             <h4 class="font-semibold text-gray-900 mb-2">Size Options</h4>
                             <ul class="text-gray-600 space-y-1">
-                                <li>• Small: 15cm × 20cm</li>
-                                <li>• Medium: 25cm × 35cm</li>
-                                <li>• Large: 40cm × 50cm</li>
+                                <li>• Standard: 17.5</li>
+                                <li>• Short: 10-14 cm(promotional pencils)</li>
                                 <li>• Custom dimensions available</li>
                             </ul>
                         </div>
                         <div>
                             <h4 class="font-semibold text-gray-900 mb-2">Material Options</h4>
                             <ul class="text-gray-600 space-y-1">
-                                <li>• Standard (40 microns)</li>
-                                <li>• Heavy-duty (60 microns)</li>
-                                <li>• Extra-strong (80+ microns)</li>
-                                <li>• Biodegradable options</li>
+                                <li>• Wood Types: Linden,Cedar,Recycled Wood</li>
+                                <li>• Barrel Options: Hexagonal, Round, Triangular</li>
+                                <li>• Eco-friendly Options: Recycled paper or biodegradable wood</li>
+                                <!-- <li>• Biodegradable options</li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                        <h4 class="font-semibold text-gray-900 mb-2">Lead Options</h4>
+                        <ul class="text-gray-600 space-y-1">
+                            <li>• Graphite Grads: 2H,HB,B,2B,4B,6B</li>
+                            <li>• Colored Leads: 24/ 36/ 48-color sets available</li>
+                            <li>• Non-toxic and break-resistent cores</li>
+                            <!-- <li>• High-resolution graphics</li> -->
+                        </ul>
+                    </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900 mb-2">Printing and Branding</h4>
+                            <ul class="text-gray-600 space-y-1">
+                                <li>• Logo Printing: Laser engraving or foil stamping</li>
+                                <li>• Barrel Customization: Multi-color print, matte or glossy finish</li>
+                                <li>• Ferrule & Eraser Colors: Fully customizable combinations</li>
+                                <!-- <li>• Biodegradable options</li> -->
                             </ul>
                         </div>
                     </div>
                     
-                    <div class="mb-6">
-                        <h4 class="font-semibold text-gray-900 mb-2">Printing Specifications</h4>
-                        <ul class="text-gray-600 space-y-1">
-                            <li>• Up to 6 colors available</li>
-                            <li>• Full-surface printing</li>
-                            <li>• Logo and text customization</li>
-                            <li>• High-resolution graphics</li>
-                        </ul>
-                    </div>
+                    
                     
                     <div class="bg-blue-50 p-4 rounded">
-                        <h4 class="font-semibold text-gray-900 mb-2">Minimum Order Requirements</h4>
-                        <p class="text-gray-600 mb-2">• Plain bags: 500 units</p>
-                        <p class="text-gray-600 mb-2">• Printed bags: 1,000 units</p>
-                        <p class="text-gray-600 mb-2">• Custom sizes: 2,000 units</p>
-                        <p class="text-gray-600">• Specialty packaging: Varies by type</p>
+                        <h4 class="font-semibold text-gray-900 mb-2">Packing Options</h4>
+                        <p class="text-gray-600 mb-2">• Paper Boxes(12 pcs)</p>
+                        <p class="text-gray-600 mb-2">• Tin Boxes (24 / 36 pcs)</p>
+                        <p class="text-gray-600 mb-2">• Custom Gift Boxes with branding</p>
+                        <p class="text-gray-600">• Bulk Packaging for wholesale orders</p>
                     </div>
                 </div>
             </div>
@@ -215,7 +231,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Trusted by Businesses</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Join hundreds of satisfied clients who rely on our packaging solutions.</p>
+                <p class="text-gray-600 max-w-2xl mx-auto">Join hundreds of happy customers who trust our eco-friendly pencils for quality, sustainability, and creativity.</p>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
@@ -243,9 +259,7 @@
                         <i class="ri-double-quotes-l ri-2x text-primary"></i>
                     </div>
                     <div>
-                        <p class="text-gray-600 text-lg italic mb-6">"Siva Polythene Bage has been our go-to packaging partner for over 5 years. Their commitment to quality and sustainability aligns perfectly with our brand values. The custom bags they've created for us have received countless compliments from our customers."</p>
-                        <div>
-                            <p class="font-semibold text-gray-900">Emily Richardson</p>
+                        <p class="text-gray-600 text-lg italic mb-6">"EcoWrite Pencils has been our preferred stationery partner for over 3 years. Their dedication to sustainability and quality craftsmanship perfectly reflects our environmental values. The recycled paper pencils they’ve supplied have received wonderful feedback from our clients and team alike."</p>
                             <p class="text-gray-600">Marketing Director, Green Earth Organics</p>
                         </div>
                     </div>
@@ -300,9 +314,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                     <div>
                         <a href="#" class="inline-block mb-4">
-                            <span class="text-2xl font-['Pacifico'] text-white">Siva Polybag</span>
+                            <span class="text-2xl font-['Pacifico'] text-white">Green Pencils Ltd</span>
                         </a>
-                        <p class="text-gray-400 mb-6">Sustainable packaging solutions for modern businesses. Eco-friendly, customizable, and reliable.</p>
+                        <p class="text-gray-400 mb-6">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
                         <div class="flex space-x-4">
                             <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
                                 <i class="ri-facebook-fill text-white"></i>
@@ -323,7 +337,7 @@
                     <ul class="space-y-2">
                         <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
                         <li><a href="#products" class="text-gray-400 hover:text-white transition duration-300">Products</a></li>
-                        <li><a href="custom.html" class="text-gray-400 hover:text-white transition duration-300">Custom Solutions</a></li>
+                        <!-- <li><a href="custom.html" class="text-gray-400 hover:text-white transition duration-300">Custom Solutions</a></li> -->
                         <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
                         <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
                     </ul>
@@ -331,11 +345,11 @@
                     <div>
                         <h3 class="text-lg font-semibold mb-4">Products</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Retail Bags</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Food Packaging</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Industrial Bags</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Biodegradable Options</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom Printing</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Recycled Paper Pencils</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Seed Pencils</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Colored Pencils</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom Logo Pencils</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Eco Gift Sets</a></li>
                         </ul>
                     </div>
                     <div>
@@ -360,7 +374,7 @@
                 </div>
                 <div class="border-t border-gray-800 pt-8">
                     <div class="flex flex-col md:flex-row justify-between items-center">
-                        <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Siva Polythene Bage. All rights reserved.</p>
+                        <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Green Pencils Ltd. All rights reserved.</p>
                         <div class="flex space-x-4 text-sm text-gray-400">
                             <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
                             <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
