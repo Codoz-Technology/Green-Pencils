@@ -57,4 +57,22 @@
         .slideshow-nav-btn {
         cursor: default; /* This removes the pointer cursor */
     }
-        
+    
+    /* Mobile menu styles */
+    #mobile-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #e5e7eb;
+    }
+    
+    #mobile-menu a {
+        transition: all 0.2s ease;
+    }
+    
+    #mobile-menu button {
+        width: 100%;
+        text-align: left;
+    }

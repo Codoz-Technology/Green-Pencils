@@ -19,25 +19,55 @@
      <nav class="bg-white shadow-sm fixed w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <a href="#" class="flex-shrink-0 flex items-center">
-                        <span class="text-2xl font-['Pacifico'] text-primary">Green Pencils Ltd</span>
+
+                <!-- Left: Logo + Company Name -->
+                <div class="flex items-center space-x-2">
+                    <!-- Logo Image -->
+                    <a href="index.html" class="flex items-center">
+                        <img 
+                            src="image/logo.png" 
+                            alt="Green Pencils Logo" 
+                            class="h-10 w-auto mr-2"
+                        />
+                        <span class="text-2xl font-['Pacifico'] text-primary">
+                            Green Pencils Ltd
+                        </span>
                     </a>
                 </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden items-center">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-primary w-10 h-10 flex items-center justify-center">
+                        <i class="ri-menu-line ri-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Right: Nav Links -->
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
                     <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
                     <!-- <a href="custom.html" class="text-gray-700 hover:text-primary font-medium">Custom Solutions</a> -->
-                    <a href="#" class="text-gray-700 hover:text-primary font-medium">About Us</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a><a href="/order.html">
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+                    <a href="order.html">
                         <button class="bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Get a Quote</button>
                     </a>  
                 </div>
-                <div class="flex md:hidden items-center">
-                    <button class="text-gray-700 hover:text-primary w-10 h-10 flex items-center justify-center">
-                        <i class="ri-menu-line ri-lg"></i>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Home</a>
+                <a href="product.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Products</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About Us</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact</a>
+                <a href="order.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">
+                    <button class="w-full bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
+                        Get a Quote
                     </button>
-                </div>
+                </a>
             </div>
         </div>
     </nav>
@@ -255,5 +285,24 @@
 <script>
     AOS.init();
   </script>
+<script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
