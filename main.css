@@ -3,6 +3,107 @@ html {
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
+
+/* Fix for content overflow issues */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Ensure FAQ content doesn't overflow */
+.bg-white.rounded-lg.shadow-sm.p-6.mb-8 {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Prevent text overflow in FAQ answers */
+.bg-white.rounded-lg.shadow-sm.p-6.mb-8 p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* Ensure images don't cause overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Fix for table and pre elements that might cause overflow */
+table, pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+/* Ensure containers don't overflow */
+.max-w-7xl {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Fix for any flex containers that might cause overflow */
+.flex, .grid {
+    min-width: 0;
+}
+
+/* Ensure all sections don't overflow */
+section, .section {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* Prevent long URLs from causing overflow */
+a {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Ensure all container elements respect boundaries */
+.container, .max-w-7xl, .px-4, .px-6, .px-8 {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Prevent overflow on specific content sections */
+.py-16, .py-24, .pt-16, .pb-8, .pt-24, .pb-16 {
+    overflow-x: hidden;
+}
+
+/* Ensure text content wraps properly */
+.text-gray-600, .text-gray-900, .text-gray-400, .text-gray-700 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Prevent overflow on heading elements */
+.text-3xl, .text-xl, .text-lg, .text-4xl, .text-5xl {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Ensure all div elements respect boundaries */
+div {
+    max-width: 100%;
+}
+
+/* Comprehensive overflow prevention for all elements */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure proper text wrapping for all content */
+*, *:before, *:after {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
 :where([class^="ri-"])::before { content: "\f3c2"; }
         body {
             font-family: 'Poppins', sans-serif;
@@ -184,4 +285,67 @@ html {
 
 .whatsapp-float:hover {
   transform: scale(1.1);
+}
+
+/* Additional overflow fixes for specific elements */
+.text-justify {
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.border-b {
+    word-break: break-word;
+}
+
+/* Prevent overflow on all paragraph elements */
+p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Ensure buttons don't cause overflow */
+button, .button {
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Fix for long words in headings */
+h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Prevent flexbox overflow */
+.flex-wrap, .flex-nowrap, .flex-wrap-reverse {
+    flex-wrap: wrap;
+}
+
+/* Ensure form elements don't overflow */
+input, textarea, select {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fix for code blocks */
+code, pre, kbd {
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Ensure map and iframe elements don't cause overflow */
+iframe, .map-container {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Prevent SVG overflow */
+svg {
+    max-width: 100%;
+    height: auto;
 }

@@ -36,6 +36,11 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16 items-center">
 
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary flex items-center">
+        <i class="ri-menu-line ri-lg"></i>
+      </button>
+
       <!-- Logo -->
       <a href="index.html" class="flex items-center">
         <img src="image/logo.png" alt="Green Pencils Logo" class="h-10 w-auto mr-2" />
@@ -55,11 +60,6 @@
           </button>
         </a>
       </div>
-
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary flex items-center">
-        <i class="ri-menu-line ri-lg"></i>
-      </button>
     </div>
   </div>
 
@@ -104,13 +104,12 @@
 
       <!-- Left side: Text -->
       <div class="md:w-1/2 z-10">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Green Pencils Ltd</h1>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Manufacturer of Newspaper Pencil, Paper Pencil, Paperpen and machinery</h1>
         <!-- <p class="text-xl md:text-2xl text-gray-700 mb-6">
           Green Manufacturing = Green Products = Sustainable Future
         </p> -->
         <p class="text-gray-600 mb-8 max-w-lg">
-          We are an eco-friendly company dedicated to crafting high-quality pencils made from recycled paper and natural materials. 
-          Our mission is to promote sustainability through innovative, zero-waste writing solutions.
+          We turn newspaper into high-quality pencils, we combine creativity with environmental responsibility.
         </p>
         <div class="flex flex-wrap gap-4">
           <a href="order.html">
@@ -124,7 +123,7 @@
       <!-- Right side: Full image -->
       <div class="md:w-1/2 h-full md:h-auto relative" data-aos="fade-left" data-aos-delay="200">
         <img 
-          src="image/Gallery10.jpg" 
+          src="image/homepage.png" 
           alt="Eco-friendly pencils" 
           class="w-full h-full object-cover rounded-none md:rounded-l-lg shadow-none"
         />
@@ -195,40 +194,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 
-                <!-- Left Column: Text + Button -->
+                <!-- Left Column: Image -->
                 <div>
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Commitment to Sustainability</h2>
-                    <p class="text-gray-600 mb-6">
-                        At Green Pencils Ltd, sustainability isn’t just a promise — it’s at the heart of everything we do. We’re committed to reducing deforestation and paper waste by creating durable pencils made from recycled paper and natural materials that minimize environmental impact.
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        Our eco-conscious manufacturing process focuses on using biodegradable, non-toxic materials, and we continuously explore innovative ways to make our pencils even more sustainable — without compromising on writing quality.
-                    </p>
-                    <div class="flex items-center gap-4">
-                        <button class="bg-primary text-white px-5 py-2.5 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
-                            Learn More
-                        </button>
-                    </div>
+                    <img src="image/greenmateposter.png" alt="Greenmate Paper Pencil Manufacturing" class="w-full h-auto rounded-lg shadow-md">
                 </div>
 
-                <!-- Right Column: Stats Grid -->
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="text-primary text-4xl font-bold mb-2">70%</div>
-                        <p class="text-gray-700">Reduction in wood usage compared to traditional wooden pencils</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="text-primary text-4xl font-bold mb-2">100%</div>
-                        <p class="text-gray-700">Of our pencils are made from biodegradable or recyclable materials</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="text-primary text-4xl font-bold mb-2">5 Tons</div>
-                        <p class="text-gray-700">Of paper waste repurposed monthly through our recycling initiatives</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm">
-                        <div class="text-primary text-4xl font-bold mb-2">30%</div>
-                        <p class="text-gray-700">Of our materials come directly from post-consumer recycled sources</p>
-                    </div>
+                <!-- Right Column: Content -->
+                <div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-6">Reduce Recycle Reuse</h4>
+                    <h2 class="text-6xl font-semibold text-primary mb-4 font-['STLiti']">Leading Paperpencil Manufacturing Solutions with Greenmate</h2>
+                    <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify">
+                        We specialize in crafting eco-friendly paper pencils made from recycled newspaper and industrial waste. Our pencils are designed to reduce deforestation and minimize environmental impact while delivering the same quality and durability as traditional pencils. By transforming waste into sustainable writing tools
+                    </p>
                 </div>
 
             </div>
@@ -244,7 +221,7 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">We combine sustainability with creativity to craft pencils that are gentle on the planet and perfect for everyday use</p>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto text-justify">We combine sustainability with creativity to craft pencils that are gentle on the planet and perfect for everyday use</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -259,14 +236,14 @@
                             <i class="ri-star-fill"></i>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">"I absolutely love these eco-friendly pencils! Knowing they’re made from recycled paper and natural materials makes writing feel guilt-free. They’re smooth to use, durable, and perfectly align with my sustainable lifestyle. Highly recommended for anyone who cares about the planet!."</p>
+                    <p class="text-gray-700 mb-6 text-justify">"I absolutely love these eco-friendly pencils! Knowing they’re made from recycled paper and natural materials makes writing feel guilt-free. They’re smooth to use, durable, and perfectly align with my sustainable lifestyle. Highly recommended for anyone who cares about the planet!."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
                             <i class="ri-user-line text-gray-500"></i>
                         </div>
                         <div>
                             <h4 class="font-semibold text-gray-900">Rebecca Thompson</h4>
-                            <p class="text-gray-600 text-sm">Bloom Boutique</p>
+                            <p class="text-gray-600 text-sm text-justify">Bloom Boutique</p>
                         </div>
                     </div>
                 </div>
@@ -282,14 +259,14 @@
                             <i class="ri-star-fill"></i>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">"We needed specific sizes for our wholesale distribution, and Siva delivered perfectly. Their team was responsive and helped us find the most cost-effective solution for our needs."</p>
+                    <p class="text-gray-700 mb-6 text-justify">"We needed specific sizes for our wholesale distribution, and Siva delivered perfectly. Their team was responsive and helped us find the most cost-effective solution for our needs."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
                             <i class="ri-user-line text-gray-500"></i>
                         </div>
                         <div>
                             <h4 class="font-semibold text-gray-900">Michael Richardson</h4>
-                            <p class="text-gray-600 text-sm">Global Distributors Ltd.</p>
+                            <p class="text-gray-600 text-sm text-justify">Global Distributors Ltd.</p>
                         </div>
                     </div>
                 </div>
@@ -305,14 +282,14 @@
                             <i class="ri-star-half-fill"></i>
                         </div>
                     </div>
-                    <p class="text-gray-700 mb-6">"The biodegradable options provided by Green Pencils have helped us meet our sustainability goals while maintaining the quality our customers expect. Their team was knowledgeable and supportive throughout."</p>
+                    <p class="text-gray-700 mb-6 text-justify">"The biodegradable options provided by Green Pencils have helped us meet our sustainability goals while maintaining the quality our customers expect. Their team was knowledgeable and supportive throughout."</p>
                     <div class="flex items-center">
                         <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center mr-4">
                             <i class="ri-user-line text-gray-500"></i>
                         </div>
                         <div>
                             <h4 class="font-semibold text-gray-900">Olivia Martinez</h4>
-                            <p class="text-gray-600 text-sm">EcoFriendly Grocers</p>
+                            <p class="text-gray-600 text-sm text-justify">EcoFriendly Grocers</p>
                         </div>
                     </div>
                 </div>
@@ -321,93 +298,120 @@
     </section>
     </div>
 
-    <!-- Client Section -->
+    <!-- FAQ Section -->
     <div data-aos="zoom-in">
     <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Trusted by Businesses</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Join hundreds of happy customers who trust our eco-friendly pencils for quality, sustainability, and creativity.</p>
+                <h2 class="text-6xl font-semibold text-primary mb-4 font-['STLiti']">Frequently Asked Questions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-justify">Please contact us on <a href="mailto:hi@greenmatepencil.in" class="text-primary hover:underline">hi@greenmatepencil.in</a>, if you cannot find an answer to your question.</p>
             </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-                <div class="flex flex-col items-center">
-                    <div class="text-primary text-4xl font-bold mb-2">15+</div>
-                    <p class="text-gray-700 text-center">Years in Business</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="text-primary text-4xl font-bold mb-2">500+</div>
-                    <p class="text-gray-700 text-center">Clients Served</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="text-primary text-4xl font-bold mb-2">20M+</div>
-                    <p class="text-gray-700 text-center">Pencils Produced</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="text-primary text-4xl font-bold mb-2">98%</div>
-                    <p class="text-gray-700 text-center">Client Satisfaction</p>
-                </div>
-            </div>
-
-            <div class="bg-white p-8 rounded-lg shadow-sm mb-16">
-                <div class="flex items-start gap-6">
-                    <div class="w-16 h-16 flex-shrink-0 bg-primary bg-opacity-10 rounded-full flex items-center justify-center">
-                        <i class="ri-double-quotes-l ri-2x text-primary"></i>
+            
+            <!-- FAQ Content -->
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
+                <div class="space-y-4">
+                    <!-- FAQ Item 1 -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Will my Greenmate pencil break easily?</h3>
+                            <i class="ri-add-line text-primary text-xl"></i>
+                        </button>
+                        <div class="hidden mt-2 text-gray-600 text-justify">
+                            <p class="text-gray-800 mb-8 font-['TimesNewRoman'] text-justify text-lg">Nope! These pencils are super strong and last a long time. They're tested to make sure they don't snap easily and write really smoothly—just like your regular wooden pencil (but cooler and greener!).</p>
+                        </div>
                     </div>
-                    <div>
-                        <p class="text-gray-600 text-lg italic mb-6">"EcoWrite Pencils has been our preferred stationery partner for over 3 years. Their dedication to sustainability and quality craftsmanship perfectly reflects our environmental values. The recycled paper pencils they’ve supplied have received wonderful feedback from our clients and team alike."</p>
-                        <div>
-                            <p class="font-semibold text-gray-900">Emily Richardson</p>
-                            <p class="text-gray-600">Marketing Director, Green Earth Organics</p>
+                    
+                    <!-- FAQ Item 2 -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">What happens if my pencil gets wet?</h3>
+                            <i class="ri-add-line text-primary text-xl"></i>
+                        </button>
+                        <div class="hidden mt-2 text-gray-600 text-justify">
+                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Don't worry! Our pencils can handle a little splash and sweat easily. They're water-resistant, so a few drops won't ruin them. Just don't go swimming with it! 😄 if so then let it dry for few hours then all set to go!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 3 -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">The colors are so pretty! Are they safe?</h3>
+                            <i class="ri-add-line text-primary text-xl"></i>
+                        </button>
+                        <div class="hidden mt-2 text-gray-600 text-justify">
+                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Yes! We use non-toxic, food-safe colors that are safe for your hands (and even if you accidentally put the pencil in your mouth—we all do it sometimes!).</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 4 -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Can I sharpen it like my other pencils?</h3>
+                            <i class="ri-add-line text-primary text-xl"></i>
+                        </button>
+                        <div class="hidden mt-2 text-gray-600 text-justify">
+                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Totally! Greenmate pencils sharpen easily with any regular pencil sharpener. No breaking, no mess just a nice point for your writing or drawing.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 5 -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Can I plant my pencil after using it?</h3>
+                            <i class="ri-add-line text-primary text-xl"></i>
+                        </button>
+                        <div class="hidden mt-2 text-gray-600 text-justify">
+                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Yes! Some of our pencils come with a tiny seed capsule at the end. When your pencil gets too short, just plant it in soil, water it, and watch it grow into a flower, herb, or veggie. It's like magic! 🌱</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 6 -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Can I choose my favorite color?</h3>
+                            <i class="ri-add-line text-primary text-xl"></i>
+                        </button>
+                        <div class="hidden mt-2 text-gray-600 text-justify">
+                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Yes! Our pencils come in fun, bright colors made with safe food-grade dyes. You can pick your favorite or even collect them all!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- FAQ Item 7 -->
+                    <div class="border-b border-gray-200 pb-4">
+                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
+                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Is my pencil made from trees?</h3>
+                            <i class="ri-add-line text-primary text-xl"></i>
+                        </button>
+                        <div class="hidden mt-2 text-gray-600 text-justify">
+                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Nope! Greenmate pencils are made from recycled newspaper, not trees. So every time you use one, you're helping save the forests and protect the Earth. 🌍</p>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- <h3 class="text-xl font-semibold text-gray-900 text-center mb-8">Our Clients</h3>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-8">
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 flex items-center justify-center mb-2">
-                        <i class="ri-store-2-fill ri-2x text-gray-500"></i>
-                    </div>
-                    <p class="text-gray-700 text-center text-sm">EcoMart</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 flex items-center justify-center mb-2">
-                        <i class="ri-shopping-bag-fill ri-2x text-gray-500"></i>
-                    </div>
-                    <p class="text-gray-700 text-center text-sm">GreenRetail</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 flex items-center justify-center mb-2">
-                        <i class="ri-plant-fill ri-2x text-gray-500"></i>
-                    </div>
-                    <p class="text-gray-700 text-center text-sm">Organica</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 flex items-center justify-center mb-2">
-                        <i class="ri-restaurant-fill ri-2x text-gray-500"></i>
-                    </div>
-                    <p class="text-gray-700 text-center text-sm">FreshFoods</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 flex items-center justify-center mb-2">
-                        <i class="ri-t-shirt-fill ri-2x text-gray-500"></i>
-                    </div>
-                    <p class="text-gray-700 text-center text-sm">EcoFashion</p>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="w-12 h-12 flex items-center justify-center mb-2">
-                        <i class="ri-box-3-fill ri-2x text-gray-500"></i>
-                    </div>
-                    <p class="text-gray-700 text-center text-sm">PackWise</p>
-                </div>
-            </div> -->
+            <script>
+                // FAQ accordion functionality
+                document.querySelectorAll('.bg-white.rounded-lg.shadow-sm.p-6.mb-8 button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const content = button.nextElementSibling;
+                        const icon = button.querySelector('i');
+                        
+                        // Toggle content visibility
+                        content.classList.toggle('hidden');
+                        
+                        // Toggle icon
+                        if (content.classList.contains('hidden')) {
+                            icon.classList.remove('ri-subtract-line');
+                            icon.classList.add('ri-add-line');
+                        } else {
+                            icon.classList.remove('ri-add-line');
+                            icon.classList.add('ri-subtract-line');
+                        }
+                    });
+                });
+            </script>
         </div>
     </section>
 </div>
-
-    
 
     <!-- Footer -->
     <div data-aos="flip-up">
@@ -418,7 +422,7 @@
                     <a href="#" class="inline-block mb-4">
                         <span class="text-2xl font-['Pacifico'] text-white">Green Pencils Ltd</span>
                     </a>
-                    <p class="text-gray-400 mb-6">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
+                    <p class="text-gray-400 mb-6 text-justify">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
                             <i class="ri-facebook-fill text-white"></i>
@@ -456,7 +460,7 @@
                 </div>
                 <div>
                     <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
-                    <p class="text-gray-400 mb-4">Subscribe to receive updates on new products and special offers.</p>
+                    <p class="text-gray-400 mb-4 text-justify">Subscribe to receive updates on new products and special offers.</p>
                     <form class="mb-4">
                         <div class="flex">
                             <input type="email" placeholder="Your email address" class="px-4 py-2 w-full rounded-l border-none text-gray-900">
@@ -476,7 +480,7 @@
             </div>
             <div class="border-t border-gray-800 pt-8">
                 <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm mb-4 md:mb-0">&copy; 2025 Green Pencils Ltd. All rights reserved.</p>
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0 text-justify">&copy; 2025 Green Pencils Ltd. All rights reserved.</p>
                     <div class="flex space-x-4 text-sm text-gray-400">
                         <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
                         <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
