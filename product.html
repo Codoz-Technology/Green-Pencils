@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Pencils Ltd</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#2E7D32',secondary:'#81C784'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50 overflow-x-hidden max-w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary flex items-center">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+
+                <!-- Logo Image -->
+                <a href="index.html" class="flex items-center">
+                    <img 
+                        src="image/logo.png" 
+                        alt="Green Pencils Logo" 
+                        class="h-10 w-auto mr-2"
+                    />
+                    <span class="text-2xl font-['Pacifico'] text-primary">
+                        GreenMate Pencils Ltd
+                    </span>
+                </a>
+
+                <!-- Right: Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
+                    <a href="machinery.html" class="text-gray-700 hover:text-primary font-medium">Machinery</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+                    <a href="order.html">
+                        <button class="bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Get a Quote</button>
+                    </a>  
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Home</a>
+                <a href="product.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Products</a>
+                <a href="machinery.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Machinery</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About Us</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact</a>
+                <a href="order.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">
+                    <button class="w-full bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
+                        Get a Quote
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Product Showcase -->
+     <div data-aos="zoom-in">
+    <section id="products" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Our Products</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-justify">Explore our range of high-quality eco-friendly pencils crafted from recycled paper and natural materials, perfect for everyday use, schools, and creative industries.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 overflow-x-hidden max-w-full">
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="image/Gallery2.jpg" alt="Retail Shopping Bags" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Eco-Friendly Recycled Newspaper Pencil – Sustainable & Wood-Free</h4>
+                        <p class="text-gray-600 mb-4 text-justify">Made from recycled newspaper, this eco-friendly pencil is a sustainable alternative to wooden pencils. Perfect for schools, offices, and green-conscious buyers, it helps reduce deforestation and supports a zero-waste lifestyle.</p>
+                     <a href="order.html">
+                    <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
+</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="image/Gallery3.jpg" alt="Food Packaging Bags" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Recycled Newspaper Pencil Supports Gardening</h4>
+                        <p class="text-gray-600 mb-4 text-justify">This eco-friendly pencil is made from recycled newspaper and comes with a seed capsule at the end. Once the pencil is too short to use, plant it in soil and grow herbs, flowers, or vegetables. A perfect zero-waste alternative to traditional pencils, ideal for sustainable gifting, gardening lovers, and eco-conscious schools or offices.</p>
+                    <a href="order.html">
+                    <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
+</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="image/Gallery5.jpg" alt="Industrial Bags" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Plantable Newspaper Pencil with Food-Safe Colors</h4>
+                        <p class="text-gray-600 mb-4 text-justify">Crafted from recycled newspaper and stained with non-toxic, food-grade colors, this eco-friendly pencil is safe, vibrant, and sustainable. It features a biodegradable seed capsule at the end,once the pencil is too short, plant it in soil and grow herbs, flowers, or vegetables. A safe, colorful, and green choice for kids, classrooms, offices, and eco-conscious gift-givers.</p>
+                        <a href="order.html">
+    <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
+</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="image/Gallery10.jpg" alt="Biodegradable Bags" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Upcycled white PaperPencil</h4>
+                        <p class="text-gray-600 mb-4 text-justify">This eco-friendly white pencil is crafted from upcycled industrial paper waste, offering a clean, modern look with zero wood usage. Durable, smooth, and sustainable, it’s a smart alternative to traditional pencils—perfect for schools, offices, and eco-conscious brands. By using repurposed materials, it helps reduce landfill waste and supports a circular economy.</p>
+                        <a href="order.html">
+    <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
+</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="image/Gallery16.jpg" alt="Custom Printed Bags" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Eco-Friendly & Eye-Catching</h4>
+                        <p class="text-gray-600 mb-4 text-justify">Made from recycled white paper, this eco-friendly pencil is stained with safe, non-toxic colors to add a vibrant and unique touch. Durable, smooth-writing, and wood-free, it's perfect for schools, offices, gifting, or sustainable branding. Combining style with sustainability, this pencil makes writing more colorful—while caring for the planet.</p>
+                        <a href="order.html">
+    <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
+</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="image/Gallery4.jpg" alt="Reusable Bags" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Fun, Safe & Eco-Friendly</h4>
+                        <p class="text-gray-600 mb-4 text-justify">Made from recycled white paper and stained with bright, non-toxic colors, this plantable pencil is perfect for kids! Safe to use and fun to write with, each pencil has a seed capsule at the end—just plant it when it’s too short and watch flowers, herbs, or veggies grow. A playful way to teach kids about sustainability, nature, and creativity—all in one pencil!</p>
+                        <a href="order.html">
+    <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
+</a>
+                    </div>
+                </div>
+                 <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="image/Gallery4.jpg" alt="Reusable Bags" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Customizable Plantable Paper Pencils</h4>
+                        <p class="text-gray-600 mb-4 text-justify">Ideal for educational institutions, corporate CSR initiatives, eco-conscious brands, and school programs, these pencils can be fully customized with logos, names, or campaign messages—offering a meaningful way to promote environmental awareness among children.</p>
+                        <a href="order.html">
+    <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
+</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition duration-300">
+                    <div class="h-64 overflow-hidden">
+                        <img src="image/Gallery4.jpg" alt="Reusable Bags" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Packaging</h4>
+                        <p class="text-gray-600 mb-4 text-justify">Make your eco-friendly newspaper pencils stand out with fully customizable packaging! Perfect for corporate gifting, school events, weddings, and brand promotions, our packaging can be personalized with your logo, message, colors, or design. Eco-conscious and eye-catching, it’s a sustainable way to promote your brand while supporting green living</p>
+                        <a href="order.html">
+    <button class="bg-primary text-white px-4 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Request Quote</button>
+</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section></div>
+    <script>
+                // FAQ accordion functionality
+                document.querySelectorAll('.bg-white.rounded-lg.shadow-sm.p-6.mb-8 button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const content = button.nextElementSibling;
+                        const icon = button.querySelector('i');
+                        
+                        // Toggle content visibility
+                        content.classList.toggle('hidden');
+                        
+                        // Toggle icon
+                        if (content.classList.contains('hidden')) {
+                            icon.classList.remove('ri-subtract-line');
+                            icon.classList.add('ri-add-line');
+                        } else {
+                            icon.classList.remove('ri-add-line');
+                            icon.classList.add('ri-subtract-line');
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </section></div>
+         
+        <!-- Footer -->
+        <div data-aos="flip-up">
+        <footer class="bg-gray-900 text-white pt-16 pb-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                    <div>
+                        <a href="#" class="inline-block mb-4">
+                            <span class="text-2xl font-['Pacifico'] text-white">Green Pencils Ltd</span>
+                        </a>
+                        <p class="text-gray-400 mb-6 text-justify">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-facebook-fill text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-twitter-fill text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-instagram-fill text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-linkedin-fill text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                   <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="product.html" class="text-gray-400 hover:text-white transition duration-300">Products</a></li>
+                        <li><a href="machinery.html" class="text-gray-400 hover:text-white transition duration-300">Machinery</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Products</h3>
+                        <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Recycled Paper Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Seed Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Colored Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom Logo Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Eco Gift Sets</a></li>
+                    </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                        <p class="text-gray-400 mb-4 text-justify">Subscribe to receive updates on new products and special offers.</p>
+                        <form class="mb-4">
+                            <div class="flex">
+                                <input type="email" placeholder="Your email address" class="px-4 py-2 w-full rounded-l border-none text-gray-900">
+                                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-r hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Subscribe</button>
+                            </div>
+                        </form>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-secure-payment-line text-gray-400"></i>
+                            <span class="text-gray-400 text-sm">Secure payment options:</span>
+                        </div>
+                        <div class="flex space-x-3 mt-2">
+                            <i class="ri-visa-fill ri-lg text-gray-400"></i>
+                            <i class="ri-mastercard-fill ri-lg text-gray-400"></i>
+                            <i class="ri-paypal-fill ri-lg text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-400 text-sm mb-4 md:mb-0 text-justify">&copy; 2025 Green Pencils Ltd. All rights reserved.</p>
+                        <div class="flex space-x-4 text-sm text-gray-400">
+                            <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                            <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                            <a href="#" class="hover:text-white transition duration-300">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-opacity-90 z-50" style="margin: 20px;">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

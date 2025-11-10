@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Pencils Ltd - Machinery</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#2E7D32',secondary:'#81C784'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="bg-white">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-50 overflow-x-hidden max-w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center">
+                    <img src="image/logo.png" alt="Green Pencils Logo" class="h-10 w-auto mr-2" />
+                    <span class="text-2xl font-['Pacifico'] text-primary">GreenMate Pencils Ltd</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
+                    <a href="machinery.html" class="text-gray-700 hover:text-primary font-medium">Machinery</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+                    <a href="order.html">
+                        <button class="bg-primary text-white px-5 py-2 rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
+                            Get a Quote
+                        </button>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary flex items-center">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-lg md:hidden z-50">
+            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Home</a>
+            <a href="product.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Products</a>
+            <a href="machinery.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Machinery</a>
+            <a href="about.html" class="block px-4 py-2 text-gray-700 hover:text-primary">About Us</a>
+            <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Contact</a>
+            <a href="order.html" class="block px-4 py-2">
+                <button class="w-full bg-primary text-white px-5 py-2 rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
+                    Get a Quote
+                </button>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+    <!-- Our Manufacturing Equipment -->
+    <section class="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Manufacturing Equipment</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto text-lg text-justify">Watch our machinery in action and see how we create high-quality eco-friendly pencils</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 overflow-x-hidden max-w-full">
+                <!-- Rolling Machine -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+                    <div class="relative pb-[56.25%] h-0 bg-gray-200">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/placeholder1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="ri-settings-3-line text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Rolling Machine</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-justify">The rolling machine is a key component in the paper pencil manufacturing process. It precisely wraps recycled paper around a graphite lead, forming the pencil's core structure. Designed for speed, accuracy, and consistency, it ensures strong bonding and smooth finishing—ideal for high-quality, eco-friendly pencil production.</p>
+                    </div>
+                </div>
+                
+                <!-- End Cutting Machine -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+                    <div class="relative pb-[56.25%] h-0 bg-gray-200">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/placeholder2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="ri-scissors-cut-line text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">End Cutting Machine</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-justify">The dual end cutting machine ensures that every paper pencil is trimmed to the exact same length from both ends. It provides precision cutting for a clean, professional finish—essential for maintaining consistent size, appearance, and quality in high-volume pencil production.</p>
+                    </div>
+                </div>
+                
+                <!-- Polishing Machine -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+                    <div class="relative pb-[56.25%] h-0 bg-gray-200">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/placeholder3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="ri-sparkling-line text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Polishing Machine</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-justify">The polishing machine smoothens and refines the surface of paper pencils, enhancing their finish and appearance. It removes minor imperfections and prepares the pencils for coloring or packaging—ensuring a clean and high-quality final product or for further processing like branding or coloring that meets export-grade standards.</p>
+                    </div>
+                </div>
+                
+                <!-- Pen Rolling Machine -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1">
+                    <div class="relative pb-[56.25%] h-0 bg-gray-200">
+                        <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/placeholder4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-3">
+                                <i class="ri-pen-nib-line text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900">Pen Rolling Machine</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm text-justify">This eco-friendly white pencil is crafted from upcycled industrial paper waste, offering a clean, modern look with zero wood usage. Durable, smooth, and sustainable, it's a smart alternative to traditional pencils—perfect for schools, offices, and eco-conscious brands. By using repurposed materials, it helps reduce landfill waste and supports a circular economy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary bg-opacity-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Interested in Our Manufacturing Process?</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto mb-8 text-justify">
+                Learn more about how we combine technology and sustainability to create our eco-friendly pencils.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="about.html">
+                    <button class="bg-primary text-white px-6 py-3 rounded-button hover:bg-opacity-90 transition duration-300 font-medium">
+                        About Our Process
+                    </button>
+                </a>
+                <a href="penandpencil.pdf" download>
+                    <button class="bg-white text-primary border border-primary px-6 py-3 rounded-button hover:bg-gray-50 transition duration-300 font-medium">
+                        <i class="ri-file-download-line mr-2"></i>Pen Pencil machine
+                    </button>
+                </a>
+                <a href="tel:+919994393711">
+                    <button class="bg-gray-800 text-white px-6 py-3 rounded-button hover:bg-gray-900 transition duration-300 font-medium">
+                        <i class="ri-phone-line mr-2"></i>Call Us
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="index.html" class="inline-block mb-4">
+                        <span class="text-2xl font-['Pacifico'] text-white">Green Pencils Ltd</span>
+                    </a>
+                    <p class="text-gray-400 mb-6 text-justify">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                            <i class="ri-facebook-fill text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                            <i class="ri-twitter-fill text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                            <i class="ri-instagram-fill text-white"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                            <i class="ri-linkedin-fill text-white"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="product.html" class="text-gray-400 hover:text-white transition duration-300">Products</a></li>
+                        <li><a href="machinery.html" class="text-gray-400 hover:text-white transition duration-300">Machinery</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Products</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Recycled Paper Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Seed Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Colored Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom Logo Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Eco Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4 text-justify">Subscribe to receive updates on new products and special offers.</p>
+                    <form class="mb-4">
+                        <div class="flex">
+                            <input type="email" placeholder="Your email address" class="px-4 py-2 w-full rounded-l border-none text-gray-900">
+                            <button type="submit" class="bg-primary text-white px-4 py-2 rounded-r hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="flex items-center gap-2">
+                        <i class="ri-secure-payment-line text-gray-400"></i>
+                        <span class="text-gray-400 text-sm">Secure payment options:</span>
+                    </div>
+                    <div class="flex space-x-3 mt-2">
+                        <i class="ri-visa-fill ri-lg text-gray-400"></i>
+                        <i class="ri-mastercard-fill ri-lg text-gray-400"></i>
+                        <i class="ri-paypal-fill ri-lg text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0 text-justify">&copy; 2025 Green Pencils Ltd. All rights reserved.</p>
+                    <div class="flex space-x-4 text-sm text-gray-400">
+                        <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                        <a href="#" class="hover:text-white transition duration-300">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-opacity-90">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+        });
+    </script>
+</body>
+</html>

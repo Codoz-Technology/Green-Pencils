@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Pencils Ltd</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#2E7D32',secondary:'#81C784'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+     <!-- Navigation -->
+     <nav class="bg-white shadow-sm fixed w-full z-50 overflow-x-hidden max-w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary flex items-center">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+
+                <!-- Logo Image -->
+                <a href="index.html" class="flex items-center">
+                    <img 
+                        src="image/logo.png" 
+                        alt="Green Pencils Logo" 
+                        class="h-10 w-auto mr-2"
+                    />
+                    <span class="text-2xl font-['Pacifico'] text-primary">
+                        GreenMate Pencils Ltd
+                    </span>
+                </a>
+
+                <!-- Right: Nav Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
+                    <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
+                    <a href="machinery.html" class="text-gray-700 hover:text-primary font-medium">Machinery</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
+                    <a href="order.html">
+                        <button class="bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Get a Quote</button>
+                    </a>  
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Home</a>
+                <a href="product.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Products</a>
+                <a href="machinery.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Machinery</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About Us</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact</a>
+                <a href="order.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">
+                    <button class="w-full bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
+                        Get a Quote
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sustainability Commitment -->
+     <div data-aos="zoom-in">
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <br><br><h2 class="text-3xl font-bold text-gray-900 mb-4">About Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto text-justify">Our team is passionate about crafting high-quality, eco-friendly pencils that inspire creativity while caring for the planet. Each pencil we make reflects our dedication to sustainability and craftsmanship.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center overflow-x-hidden max-w-full">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Commitment to Sustainability</h2>
+                    <p class="text-gray-600 mb-6 text-justify">With over 12 years of expertise in paper pencil manufacturing, Greenmate specializes in producing high-quality, eco-friendly pencils made from recycled paper. Our commitment to sustainability and innovation has positioned us as a trusted name in the industry, serving educational institutions, businesses, and conscious consumers across the globe.</p>
+                    <p class="text-gray-600 mb-6 text-justify">Greenmate is a trusted OEM supplier of eco-friendly pencils made from recycled paper and newspaper. We specialize in sustainable, high-quality solutions tailored for schools, brands, and corporate clients delivering reliable, customizable products backed by a strong commitment to environmental responsibility.</p>
+                    <div class="flex items-center gap-4">
+                        <button class="bg-primary text-white px-5 py-2.5 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Learn More</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-primary text-4xl font-bold mb-2">70%</div>
+                        <p class="text-gray-700 text-justify">Reduction in wood usage compared to traditional wooden pencils</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-primary text-4xl font-bold mb-2">100%</div>
+                        <p class="text-gray-700 text-justify">Of our pencils are made from biodegradable or recyclable materials</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-primary text-4xl font-bold mb-2">5 Tons</div>
+                        <p class="text-gray-700 text-justify">Of paper waste repurposed monthly through our recycling initiatives</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="text-primary text-4xl font-bold mb-2">30%</div>
+                        <p class="text-gray-700 text-justify">Of our materials come directly from post-consumer recycled sources</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></div>
+            <script>
+                // FAQ accordion functionality
+                document.querySelectorAll('.bg-white.rounded-lg.shadow-sm.p-6.mb-8 button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const content = button.nextElementSibling;
+                        const icon = button.querySelector('i');
+                        
+                        // Toggle content visibility
+                        content.classList.toggle('hidden');
+                        
+                        // Toggle icon
+                        if (content.classList.contains('hidden')) {
+                            icon.classList.remove('ri-subtract-line');
+                            icon.classList.add('ri-add-line');
+                        } else {
+                            icon.classList.remove('ri-add-line');
+                            icon.classList.add('ri-subtract-line');
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </section></div>
+        <!-- Footer -->
+        <div data-aos="flip-up">
+        <footer class="bg-gray-900 text-white pt-16 pb-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                    <div>
+                        <a href="#" class="inline-block mb-4">
+                            <span class="text-2xl font-['Pacifico'] text-white">Green Pencils Ltd</span>
+                        </a>
+                        <p class="text-gray-400 mb-6 text-justify">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-facebook-fill text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-twitter-fill text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-instagram-fill text-white"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-full hover:bg-primary transition duration-300">
+                                <i class="ri-linkedin-fill text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                   <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="product.html" class="text-gray-400 hover:text-white transition duration-300">Products</a></li>
+                        <li><a href="machinery.html" class="text-gray-400 hover:text-white transition duration-300">Machinery</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition duration-300">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Products</h3>
+                          <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Recycled Paper Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Seed Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Colored Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Custom Logo Pencils</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Eco Gift Sets</a></li>
+                    </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                        <p class="text-gray-400 mb-4 text-justify">Subscribe to receive updates on new products and special offers.</p>
+                        <form class="mb-4">
+                            <div class="flex">
+                                <input type="email" placeholder="Your email address" class="px-4 py-2 w-full rounded-l border-none text-gray-900">
+                                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-r hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Subscribe</button>
+                            </div>
+                        </form>
+                        <div class="flex items-center gap-2">
+                            <i class="ri-secure-payment-line text-gray-400"></i>
+                            <span class="text-gray-400 text-sm">Secure payment options:</span>
+                        </div>
+                        <div class="flex space-x-3 mt-2">
+                            <i class="ri-visa-fill ri-lg text-gray-400"></i>
+                            <i class="ri-mastercard-fill ri-lg text-gray-400"></i>
+                            <i class="ri-paypal-fill ri-lg text-gray-400"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-400 text-sm mb-4 md:mb-0 text-justify">&copy;Green Pencils Ltd. All rights reserved.</p>
+                        <div class="flex space-x-4 text-sm text-gray-400">
+                            <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                            <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                            <a href="#" class="hover:text-white transition duration-300">Sitemap</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-opacity-90 z-50" style="margin: 20px;">
+        <i class="ri-arrow-up-line ri-lg"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+            
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'invisible');
+                    backToTopButton.classList.add('opacity-100', 'visible');
+                } else {
+                    backToTopButton.classList.remove('opacity-100', 'visible');
+                    backToTopButton.classList.add('opacity-0', 'invisible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

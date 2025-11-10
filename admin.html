@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Green Pencils Ltd</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <!-- Add these script imports in the head section -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.29/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #283593;
+            --accent-color: #3949ab;
+            --success-color: #43a047;
+            --warning-color: #fdd835;
+            --danger-color: #e53935;
+            --info-color: #039be5;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            top: -50%;
+            left: -50%;
+        }
+
+        .login-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-card .form-control {
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .login-card .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(57, 73, 171, 0.25);
+        }
+
+        .top-navbar {
+            background: var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            height: calc(100vh - 60px);
+            width: 280px;
+            background: white;
+            color: #333;
+            padding-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar .nav-link {
+            color: #555;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-radius: 0 30px 30px 0;
+            margin: 0.25rem 0;
+            transition: all 0.3s;
+        }
+
+        .sidebar .nav-link:hover {
+            color: var(--primary-color);
+            background: rgba(26, 35, 126, 0.1);
+            transform: translateX(5px);
+        }
+
+        .sidebar .nav-link.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .sidebar .nav-link i {
+            width: 24px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .main-content {
+            margin-left: 280px;
+            margin-top: 60px;
+            padding: 30px;
+            transition: all 0.3s;
+        }
+
+        .search-bar {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .search-bar .form-control {
+            border-radius: 20px;
+            padding-left: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+        }
+
+        .search-bar .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .stats-card {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .stats-card::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+        }
+
+        .stats-card i {
+            position: absolute;
+            right: 20px;
+            bottom: -10px;
+            font-size: 5em;
+            opacity: 0.2;
+            transform: rotate(-15deg);
+        }
+
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 300px;
+            width: 100%;
+        }
+
+        .btn-custom {
+            border-radius: 8px;
+            padding: 0.5rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+        }
+
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .table thead th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 500;
+            border: none;
+        }
+
+        .table-hover tbody tr:hover {
+            background: rgba(26, 35, 126, 0.05);
+        }
+
+        .badge-custom {
+            padding: 0.5em 1em;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* Reports Section Styles */
+        .report-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .report-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                margin-left: -280px;
+                z-index: 1001;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .sidebar.active {
+                margin-left: 0;
+            }
+            .search-bar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-container">
+        <div class="login-card">
+            <h2 class="text-center mb-4">Admin Login</h2>
+            <form id="loginForm" onsubmit="return handleLogin(event)">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Dashboard (Initially Hidden) -->
+    <div id="dashboard-container" class="d-none">
+        <!-- Top Navbar -->
+        <nav class="top-navbar">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <button id="sidebarToggle" class="btn btn-link text-white d-md-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <img src="image/logo.png" alt="Logo" height="40" class="me-2 rounded-3">
+                    <h4 class="text-white mb-0 ms-2">Green Pencils Admin</h4>
+                </div>
+                <div class="search-bar d-none d-md-block">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search anything..." id="globalSearch">
+                        <button class="btn btn-outline-light rounded-end" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="user-profile">
+                    <div class="d-flex align-items-center">
+                        
+                        <div class="d-none d-md-block ms-2">
+                            <div class="fw-bold text-white">Administrator</div>
+                            <div class="small text-white-50">Super Admin</div>
+                        </div>
+                        <div class="dropdown ms-2">
+                            <button class="btn btn-link text-white" type="button" id="userMenu" data-bs-toggle="dropdown">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow">
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>My Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bell me-2"></i>Notifications</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#" onclick="handleLogout()"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="nav flex-column">
+                <a href="#" class="nav-link active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-link" data-section="orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="nav-link" data-section="products">
+                    <i class="fas fa-box"></i>
+                    <span>Products</span>
+                </a>
+                <a href="#" class="nav-link" data-section="customers">
+                    <i class="fas fa-users"></i>
+                    <span>Customers</span>
+                </a>
+                <a href="#" class="nav-link" data-section="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-link" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+                <a href="machinery.html" class="nav-link">
+                    <i class="fas fa-cogs"></i>
+                    <span>Machinery</span>
+                </a>
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span>Back to Site</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Reports Section -->
+            <div id="reports" class="content-section d-none">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Reports & Analytics</h2>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary btn-custom" onclick="exportAllReports('pdf')">
+                            <i class="fas fa-file-pdf me-2"></i>Export as PDF
+                        </button>
+                        <button class="btn btn-outline-success btn-custom ms-2" onclick="exportAllReports('excel')">
+                            <i class="fas fa-file-excel me-2"></i>Export as Excel
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Sales Report -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="report-card">
+                            <div class="report-icon bg-primary bg-opacity-10 text-primary">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h5>Sales Report</h5>
+                            <p class="text-muted">Comprehensive sales analysis with trends</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-primary bg-opacity-10 text-primary">Monthly</span>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-primary btn-custom" onclick="exportSingleReport('Sales', 'pdf')">
+                                        <i class="fas fa-file-pdf me-1"></i> PDF
+                                    </button>
+                                    <button class="btn btn-sm btn-success btn-custom ms-1" onclick="exportSingleReport('Sales', 'excel')">
+                                        <i class="fas fa-file-excel me-1"></i> Excel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inventory Report -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="report-card">
+                            <div class="report-icon bg-success bg-opacity-10 text-success">
+                                <i class="fas fa-boxes"></i>
+                            </div>
+                            <h5>Inventory Report</h5>
+                            <p class="text-muted">Stock levels and inventory movement</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-success bg-opacity-10 text-success">Weekly</span>
+                                <button class="btn btn-sm btn-success btn-custom">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Report -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="report-card">
+                            <div class="report-icon bg-info bg-opacity-10 text-info">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h5>Customer Report</h5>
+                            <p class="text-muted">Customer behavior and demographics</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-info bg-opacity-10 text-info">Quarterly</span>
+                                <button class="btn btn-sm btn-info btn-custom">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Report -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="report-card">
+                            <div class="report-icon bg-warning bg-opacity-10 text-warning">
+                                <i class="fas fa-rupee-sign"></i>
+                            </div>
+                            <h5>Financial Report</h5>
+                            <p class="text-muted">Revenue and expense analysis</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-warning bg-opacity-10 text-warning">Monthly</span>
+                                <button class="btn btn-sm btn-warning btn-custom">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Report -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="report-card">
+                            <div class="report-icon bg-danger bg-opacity-10 text-danger">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h5>Order Report</h5>
+                            <p class="text-muted">Order processing and fulfillment</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-danger bg-opacity-10 text-danger">Daily</span>
+                                <button class="btn btn-sm btn-danger btn-custom">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Report -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="report-card">
+                            <div class="report-icon bg-purple bg-opacity-10 text-purple">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h5>Performance Report</h5>
+                            <p class="text-muted">System and staff performance metrics</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-purple bg-opacity-10 text-purple">Weekly</span>
+                                <button class="btn btn-sm btn-purple btn-custom">
+                                    <i class="fas fa-download"></i> Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Analytics -->
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Advanced Analytics</h5>
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <div class="chart-container">
+                                            <canvas id="salesTrendChart"></canvas>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="chart-container">
+                                            <canvas id="categoryPerformanceChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div id="dashboard" class="content-section">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2>Dashboard Overview</h2>
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary">
+                            <i class="fas fa-download me-2"></i>Export Report
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card bg-primary text-white stats-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="card-title">Total Orders</h6>
+                                        <h2 class="card-text" id="totalOrders">0</h2>
+                                    </div>
+                                    <i class="fas fa-shopping-cart fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-success text-white stats-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="card-title">Total Products</h6>
+                                        <h2 class="card-text" id="totalProducts">0</h2>
+                                    </div>
+                                    <i class="fas fa-box fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-info text-white stats-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="card-title">Total Customers</h6>
+                                        <h2 class="card-text" id="totalCustomers">0</h2>
+                                    </div>
+                                    <i class="fas fa-users fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-warning text-white stats-card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="card-title">Revenue</h6>
+                                        <h2 class="card-text" id="totalRevenue">₹0</h2>
+                                    </div>
+                                    <i class="fas fa-rupee-sign fa-2x opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title">Monthly Revenue</h5>
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-outline-secondary">Week</button>
+                                        <button class="btn btn-sm btn-outline-secondary active">Month</button>
+                                        <button class="btn btn-sm btn-outline-secondary">Year</button>
+                                    </div>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="revenueChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title">Top Products</h5>
+                                    <select class="form-select form-select-sm" style="width: auto;">
+                                        <option>Last 7 days</option>
+                                        <option>Last 30 days</option>
+                                        <option>Last 90 days</option>
+                                    </select>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="productsChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title">Order Status Distribution</h5>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="fas fa-sync-alt me-1"></i>Refresh
+                                    </button>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="orderStatusChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="card-title">Customer Growth</h5>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="fas fa-download me-1"></i>Export
+                                    </button>
+                                </div>
+                                <div class="chart-container">
+                                    <canvas id="customerGrowthChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="orders" class="content-section d-none">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Custom Orders</h2>
+    <div class="btn-group">
+        <button class="btn btn-outline-primary btn-custom" onclick="exportOrdersToExcel()">
+            <i class="fas fa-file-excel me-2"></i>Export to Excel
+        </button>
+        <button class="btn btn-outline-success btn-custom ms-2" onclick="exportOrdersToPDF()">
+            <i class="fas fa-file-pdf me-2"></i>Export to PDF
+        </button>
+        <button class="btn btn-outline-dark ms-2" onclick="createOrderTable()">
+            <i class="fas fa-database me-2"></i>Create Table
+        </button>
+    </div>
+</div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <table id="ordersTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer Name</th>
+                                    <th>Email</th>
+                                    <th>Company</th>
+                                    <th>Order Date</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Orders will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Details Modal -->
+            <div class="modal fade" id="orderDetailsModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Order Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="mb-3">Customer Information</h6>
+                                    <p><strong>Name:</strong> <span id="modalCustomerName"></span></p>
+                                    <p><strong>Email:</strong> <span id="modalEmail"></span></p>
+                                    <p><strong>Company:</strong> <span id="modalCompany"></span></p>
+                                    <p><strong>Phone:</strong> <span id="modalPhone"></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6 class="mb-3">Order Information</h6>
+                                    <p><strong>Order ID:</strong> <span id="modalOrderId"></span></p>
+                                    <p><strong>Order Date:</strong> <span id="modalOrderDate"></span></p>
+                                    <p><strong>Status:</strong> <span id="modalStatus" class="badge"></span></p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 class="mb-3">Product Details</h6>
+                                    <p><strong>Bag Types:</strong> <span id="modalBagTypes"></span></p>
+                                    <p><strong>Dimensions:</strong> <span id="modalDimensions"></span></p>
+                                    <p><strong>Quantity:</strong> <span id="modalQuantity"></span></p>
+                                    <p><strong>Requirements:</strong></p>
+                                    <p id="modalRequirements" class="bg-light p-3 rounded"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success" onclick="updateOrderStatus(this)" data-order-id="">
+                                Update Status
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div id="products" class="content-section d-none">
+                <h2 class="mb-4">Products</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <table id="productsTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Product ID</th>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Products will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customers Section -->
+            <div id="customers" class="content-section d-none">
+                <h2 class="mb-4">Customers</h2>
+                <div class="card">
+                    <div class="card-body">
+                        <table id="customersTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Customer ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Total Orders</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Customers will be loaded here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Login handling
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Check for specific credentials
+            if (username === 'administrator' && password === 'admin@123') {
+                document.getElementById('loginScreen').classList.add('d-none');
+                document.getElementById('dashboard-container').classList.remove('d-none');
+                initializeCharts();
+                initializeReportCharts();
+                loadData();
+            } else {
+                // Show error message and redirect to home page after 2 seconds
+                alert('Invalid credentials! Redirecting to home page...');
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000);
+            }
+        }
+       
+
+        function handleLogout() {
+            document.getElementById('loginScreen').classList.remove('d-none');
+            document.getElementById('dashboard-container').classList.add('d-none');
+        }
+        function createOrderTable() {
+    fetch('create_table.php')
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            if (data.status === 'success') {
+                loadOrders(); // Refresh orders after table is created
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred while creating the table.');
+        });
+}
+
+
+        // Sidebar toggle for mobile
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        });
+
+        // Global search functionality
+        document.getElementById('globalSearch').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            // Implement your search logic here
+            console.log('Searching for:', searchTerm);
+        });
+
+        // Navigation handling
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.dataset.section) {
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    document.querySelectorAll('.content-section').forEach(section => {
+                        section.classList.add('d-none');
+                    });
+                    document.getElementById(this.dataset.section).classList.remove('d-none');
+                }
+            });
+        });
+
+        // Initialize DataTables
+        $(document).ready(function() {
+            $('#ordersTable').DataTable();
+            $('#productsTable').DataTable();
+            $('#customersTable').DataTable();
+            initializeCharts();
+            initializeReportCharts();
+        });
+
+        // Initialize charts with enhanced UI
+        function initializeCharts() {
+            // Monthly Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [12000, 19000, 15000, 25000, 22000, 30000],
+                        borderColor: '#3949ab',
+                        backgroundColor: 'rgba(57, 73, 171, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#3949ab',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: {
+                                    size: 12,
+                                    family: "'Segoe UI', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#333',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyColor: '#666',
+                            bodyFont: {
+                                size: 13
+                            },
+                            padding: 12,
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return '₹' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                },
+                                padding: 10
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                },
+                                padding: 10,
+                                callback: function(value) {
+                                    return '₹' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Top Products Chart
+            const productsCtx = document.getElementById('productsChart').getContext('2d');
+            new Chart(productsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Custom Bag', 'Poly Bag', 'Shopping Bag', 'Gift Bag'],
+                    datasets: [{
+                        label: 'Sales',
+                        data: [300, 450, 320, 280],
+                        backgroundColor: [
+                            'rgba(57, 73, 171, 0.7)',
+                            'rgba(67, 160, 71, 0.7)',
+                            'rgba(253, 216, 53, 0.7)',
+                            'rgba(229, 57, 53, 0.7)'
+                        ],
+                        borderRadius: 8,
+                        borderSkipped: false,
+                        barThickness: 30
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#333',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyColor: '#666',
+                            bodyFont: {
+                                size: 13
+                            },
+                            padding: 12,
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Sales: ' + context.parsed.y + ' units';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Order Status Chart
+            const orderStatusCtx = document.getElementById('orderStatusChart').getContext('2d');
+            new Chart(orderStatusCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completed', 'Pending', 'Processing', 'Cancelled'],
+                    datasets: [{
+                        data: [65, 20, 10, 5],
+                        backgroundColor: [
+                            'rgba(67, 160, 71, 0.8)',
+                            'rgba(253, 216, 53, 0.8)',
+                            'rgba(57, 73, 171, 0.8)',
+                            'rgba(229, 57, 53, 0.8)'
+                        ],
+                        borderWidth: 0,
+                        borderRadius: 5,
+                        spacing: 2,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#333',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyColor: '#666',
+                            bodyFont: {
+                                size: 13
+                            },
+                            padding: 12,
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Customer Growth Chart
+            const customerGrowthCtx = document.getElementById('customerGrowthChart').getContext('2d');
+            new Chart(customerGrowthCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'New Customers',
+                        data: [20, 25, 30, 35, 45, 50],
+                        borderColor: '#e53935',
+                        backgroundColor: 'rgba(229, 57, 53, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#e53935',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: {
+                                    size: 12,
+                                    family: "'Segoe UI', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#333',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyColor: '#666',
+                            bodyFont: {
+                                size: 13
+                            },
+                            padding: 12,
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize report charts with enhanced UI
+        function initializeReportCharts() {
+            // Sales Trend Chart
+            const salesTrendCtx = document.getElementById('salesTrendChart').getContext('2d');
+            new Chart(salesTrendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Sales Trend',
+                        data: [30000, 45000, 40000, 50000, 55000, 60000],
+                        borderColor: '#1a237e',
+                        backgroundColor: 'rgba(26, 35, 126, 0.1)',
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#1a237e',
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: {
+                                    size: 12,
+                                    family: "'Segoe UI', sans-serif"
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#333',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyColor: '#666',
+                            bodyFont: {
+                                size: 13
+                            },
+                            padding: 12,
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return '₹' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                font: {
+                                    size: 12
+                                },
+                                callback: function(value) {
+                                    return '₹' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Category Performance Chart
+            const categoryCtx = document.getElementById('categoryPerformanceChart').getContext('2d');
+            new Chart(categoryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Custom Bags', 'Poly Bags', 'Shopping Bags', 'Gift Bags'],
+                    datasets: [{
+                        data: [40, 25, 20, 15],
+                        backgroundColor: [
+                            'rgba(26, 35, 126, 0.8)',
+                            'rgba(40, 53, 147, 0.8)',
+                            'rgba(57, 73, 171, 0.8)',
+                            'rgba(92, 107, 192, 0.8)'
+                        ],
+                        borderWidth: 0,
+                        borderRadius: 5,
+                        spacing: 2,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '75%',
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: {
+                                    size: 12
+                                }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+                            titleColor: '#333',
+                            titleFont: {
+                                size: 14,
+                                weight: 'bold'
+                            },
+                            bodyColor: '#666',
+                            bodyFont: {
+                                size: 13
+                            },
+                            padding: 12,
+                            borderColor: '#ddd',
+                            borderWidth: 1,
+                            displayColors: true,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Function to load data from database
+        function loadData() {
+            // Here you would typically make AJAX calls to your backend API
+            // For now, we'll use dummy data
+            const dummyOrders = [
+                {id: 1, customer: "John Doe", product: "Custom Bag", quantity: 100, total: "₹5000", status: "Pending"},
+                {id: 2, customer: "Jane Smith", product: "Poly Bag", quantity: 200, total: "₹8000", status: "Completed"}
+            ];
+
+            const dummyProducts = [
+                {id: 1, name: "Custom Bag", category: "Custom", price: "₹50", stock: 1000},
+                {id: 2, name: "Poly Bag", category: "Standard", price: "₹40", stock: 2000}
+            ];
+
+            const dummyCustomers = [
+                {id: 1, name: "John Doe", email: "john@example.com", phone: "1234567890", orders: 5},
+                {id: 2, name: "Jane Smith", email: "jane@example.com", phone: "0987654321", orders: 3}
+            ];
+
+            // Populate tables with dummy data
+            populateTable('#ordersTable', dummyOrders);
+            populateTable('#productsTable', dummyProducts);
+            populateTable('#customersTable', dummyCustomers);
+
+            // Update dashboard numbers
+            document.getElementById('totalOrders').textContent = dummyOrders.length;
+            document.getElementById('totalProducts').textContent = dummyProducts.length;
+            document.getElementById('totalCustomers').textContent = dummyCustomers.length;
+            document.getElementById('totalRevenue').textContent = '₹13,000';
+        }
+
+        // Helper function to populate tables
+        function populateTable(tableId, data) {
+            const table = $(tableId).DataTable();
+            table.clear();
+            data.forEach(item => {
+                const actionButtons = `
+                    <button class="btn btn-sm btn-primary">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                `;
+                const rowData = Object.values(item);
+                rowData.push(actionButtons);
+                table.row.add(rowData);
+            });
+            table.draw();
+        }
+
+        // Function to export reports
+        function exportAllReports(format) {
+            const reportData = {
+                sales: {
+                    headers: ['Date', 'Product', 'Quantity', 'Revenue', 'Status'],
+                    data: [
+                        ['2024-01-15', 'Custom Bag', '100', '₹5000', 'Completed'],
+                        ['2024-01-16', 'Poly Bag', '200', '₹8000', 'Pending'],
+                        ['2024-01-17', 'Shopping Bag', '150', '₹6000', 'Completed'],
+                        ['2024-01-18', 'Gift Bag', '120', '₹4800', 'Processing']
+                    ]
+                },
+                inventory: {
+                    headers: ['Product ID', 'Product Name', 'Category', 'Stock', 'Unit Price'],
+                    data: [
+                        ['P001', 'Custom Bag', 'Custom', '1000', '₹50'],
+                        ['P002', 'Poly Bag', 'Standard', '2000', '₹40'],
+                        ['P003', 'Shopping Bag', 'Standard', '1500', '₹45'],
+                        ['P004', 'Gift Bag', 'Premium', '800', '₹60']
+                    ]
+                },
+                customers: {
+                    headers: ['Customer ID', 'Name', 'Email', 'Total Orders', 'Total Spent'],
+                    data: [
+                        ['C001', 'John Doe', 'john@example.com', '5', '₹25000'],
+                        ['C002', 'Jane Smith', 'jane@example.com', '3', '₹15000'],
+                        ['C003', 'Mike Johnson', 'mike@example.com', '7', '₹35000'],
+                        ['C004', 'Sarah Williams', 'sarah@example.com', '4', '₹20000']
+                    ]
+                }
+            };
+
+            if (format === 'pdf') {
+                exportToPDF(reportData);
+            } else if (format === 'excel') {
+                exportToExcel(reportData);
+            }
+        }
+
+        // Function to export to PDF
+        function exportToPDF(data) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Add title
+            doc.setFontSize(20);
+            doc.text('Green Pencils Ltd - Reports', 14, 20);
+            doc.setFontSize(12);
+
+            let yPos = 40;
+            const pageHeight = doc.internal.pageSize.height;
+
+            // Export each report
+            Object.entries(data).forEach(([reportName, reportData]) => {
+                // Add new page if needed
+                if (yPos > pageHeight - 60) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+
+                // Add report title
+                doc.setFontSize(16);
+                doc.text(reportName.charAt(0).toUpperCase() + reportName.slice(1) + ' Report', 14, yPos);
+                doc.setFontSize(12);
+
+                // Add table
+                doc.autoTable({
+                    head: [reportData.headers],
+                    body: reportData.data,
+                    startY: yPos + 10,
+                    styles: {
+                        fontSize: 10,
+                        cellPadding: 3
+                    },
+                    headStyles: {
+                        fillColor: [26, 35, 126],
+                        textColor: [255, 255, 255],
+                        fontStyle: 'bold'
+                    },
+                    alternateRowStyles: {
+                        fillColor: [245, 245, 245]
+                    },
+                    margin: { top: 10 }
+                });
+
+                yPos = doc.lastAutoTable.finalY + 20;
+            });
+
+            // Add footer
+            const pageCount = doc.internal.getNumberOfPages();
+            for (let i = 1; i <= pageCount; i++) {
+                doc.setPage(i);
+                doc.setFontSize(10);
+                doc.text(`Page ${i} of ${pageCount}`, doc.internal.pageSize.width - 30, doc.internal.pageSize.height - 10);
+                doc.text(`Generated on ${new Date().toLocaleDateString()}`, 14, doc.internal.pageSize.height - 10);
+            }
+
+            // Save the PDF
+            doc.save('siva_polybag_reports.pdf');
+        }
+
+        // Function to export to Excel
+        function exportToExcel(data) {
+            const wb = XLSX.utils.book_new();
+            
+            // Create worksheets for each report
+            Object.entries(data).forEach(([reportName, reportData]) => {
+                const ws_data = [
+                    reportData.headers,
+                    ...reportData.data
+                ];
+                
+                const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+                // Style the header row
+                const headerRange = XLSX.utils.decode_range(ws['!ref']);
+                for (let C = headerRange.s.c; C <= headerRange.e.c; ++C) {
+                    const address = XLSX.utils.encode_cell({ r: 0, c: C });
+                    ws[address].s = {
+                        fill: { fgColor: { rgb: "1A237E" } },
+                        font: { color: { rgb: "FFFFFF" }, bold: true },
+                        alignment: { horizontal: "center" }
+                    };
+                }
+
+                // Add the worksheet to the workbook
+                XLSX.utils.book_append_sheet(wb, ws, reportName.charAt(0).toUpperCase() + reportName.slice(1));
+            });
+
+            // Save the Excel file
+            XLSX.writeFile(wb, 'siva_polybag_reports.xlsx');
+        }
+
+        // Individual report export functions
+        function exportSingleReport(reportType, format) {
+            const reportData = {
+                sales: {
+                    headers: ['Date', 'Product', 'Quantity', 'Revenue', 'Status'],
+                    data: [
+                        ['2024-01-15', 'Custom Bag', '100', '₹5000', 'Completed'],
+                        ['2024-01-16', 'Poly Bag', '200', '₹8000', 'Pending'],
+                        ['2024-01-17', 'Shopping Bag', '150', '₹6000', 'Completed'],
+                        ['2024-01-18', 'Gift Bag', '120', '₹4800', 'Processing']
+                    ]
+                }
+            };
+
+            if (format === 'pdf') {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                // Add title
+                doc.setFontSize(20);
+                doc.text(`Green Pencils Ltd - ${reportType} Report`, 14, 20);
+
+                // Add table
+                doc.autoTable({
+                    head: [reportData.sales.headers],
+                    body: reportData.sales.data,
+                    startY: 30,
+                    styles: {
+                        fontSize: 10,
+                        cellPadding: 3
+                    },
+                    headStyles: {
+                        fillColor: [26, 35, 126],
+                        textColor: [255, 255, 255],
+                        fontStyle: 'bold'
+                    },
+                    alternateRowStyles: {
+                        fillColor: [245, 245, 245]
+                    }
+                });
+
+                // Add footer
+                doc.setFontSize(10);
+                doc.text(`Generated on ${new Date().toLocaleDateString()}`, 14, doc.internal.pageSize.height - 10);
+
+                // Save the PDF
+                doc.save(`siva_polybag_${reportType.toLowerCase()}_report.pdf`);
+            } else if (format === 'excel') {
+                const wb = XLSX.utils.book_new();
+                const ws = XLSX.utils.aoa_to_sheet([
+                    reportData.sales.headers,
+                    ...reportData.sales.data
+                ]);
+
+                // Style the header row
+                const headerRange = XLSX.utils.decode_range(ws['!ref']);
+                for (let C = headerRange.s.c; C <= headerRange.e.c; ++C) {
+                    const address = XLSX.utils.encode_cell({ r: 0, c: C });
+                    ws[address].s = {
+                        fill: { fgColor: { rgb: "1A237E" } },
+                        font: { color: { rgb: "FFFFFF" }, bold: true },
+                        alignment: { horizontal: "center" }
+                    };
+                }
+
+                XLSX.utils.book_append_sheet(wb, ws, reportType);
+                XLSX.writeFile(wb, `siva_polybag_${reportType.toLowerCase()}_report.xlsx`);
+            }
+        }
+
+        // Update the report card buttons to include export functionality
+        document.querySelectorAll('.report-card .btn-custom').forEach(button => {
+            button.addEventListener('click', function() {
+                const reportType = this.closest('.report-card').querySelector('h5').textContent;
+                const format = 'pdf'; // Default to PDF, you can add a dropdown for format selection
+                exportSingleReport(reportType, format);
+            });
+        });
+
+        // Function to load orders from database
+        function loadOrders() {
+            fetch('get_orders.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        const table = $('#ordersTable').DataTable();
+                        table.clear();
+                        
+                        data.data.forEach(order => {
+                            const statusBadge = getStatusBadge(order.status);
+                            const actions = `
+                                <button class="btn btn-sm btn-info me-1" onclick="viewOrderDetails(${JSON.stringify(order).replace(/"/g, '&quot;')})">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteOrder(${order.id})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            `;
+                            
+                            table.row.add([
+                                order.id,
+                                order.name,
+                                order.email,
+                                order.company || '-',
+                                new Date(order.order_date).toLocaleString(),
+                                statusBadge,
+                                actions
+                            ]);
+                        });
+                        
+                        table.draw();
+                        
+                        // Update dashboard stats
+                        document.getElementById('totalOrders').textContent = data.data.length;
+                        updateDashboardStats(data.data);
+                    }
+                })
+                .catch(error => console.error('Error loading orders:', error));
+        }
+
+        // Function to get status badge HTML
+        function getStatusBadge(status) {
+            const statusColors = {
+                'pending': 'bg-warning',
+                'processing': 'bg-info',
+                'completed': 'bg-success',
+                'cancelled': 'bg-danger'
+            };
+            
+            return `<span class="badge ${statusColors[status] || 'bg-secondary'}">${status}</span>`;
+        }
+
+        // Function to view order details
+        function viewOrderDetails(order) {
+            document.getElementById('modalCustomerName').textContent = order.name;
+            document.getElementById('modalEmail').textContent = order.email;
+            document.getElementById('modalCompany').textContent = order.company || '-';
+            document.getElementById('modalPhone').textContent = order.phone || '-';
+            document.getElementById('modalOrderId').textContent = order.id;
+            document.getElementById('modalOrderDate').textContent = new Date(order.order_date).toLocaleString();
+            document.getElementById('modalStatus').textContent = order.status;
+            document.getElementById('modalStatus').className = `badge ${getStatusBadge(order.status)}`;
+            document.getElementById('modalBagTypes').textContent = order.bag_types;
+            document.getElementById('modalDimensions').textContent = `${order.width}cm × ${order.height}cm × ${order.thickness} microns`;
+            document.getElementById('modalQuantity').textContent = order.quantity;
+            document.getElementById('modalRequirements').textContent = order.requirements || 'No specific requirements';
+            
+            // Set order ID for status update button
+            document.querySelector('#orderDetailsModal button[data-order-id]').setAttribute('data-order-id', order.id);
+            
+            // Show modal
+            new bootstrap.Modal(document.getElementById('orderDetailsModal')).show();
+        }
+
+        // Function to update order status
+        function updateOrderStatus(button) {
+            const orderId = button.getAttribute('data-order-id');
+            const newStatus = prompt('Enter new status (pending/processing/completed/cancelled):');
+            
+            if (newStatus && ['pending', 'processing', 'completed', 'cancelled'].includes(newStatus.toLowerCase())) {
+                fetch('update_order_status.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        orderId: orderId,
+                        status: newStatus.toLowerCase()
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert('Order status updated successfully');
+                        loadOrders(); // Reload orders
+                        bootstrap.Modal.getInstance(document.getElementById('orderDetailsModal')).hide();
+                    } else {
+                        alert('Error updating order status');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error updating order status');
+                });
+            } else if (newStatus) {
+                alert('Invalid status. Please use: pending, processing, completed, or cancelled');
+            }
+        }
+
+        // Function to delete order
+        function deleteOrder(orderId) {
+            if (confirm('Are you sure you want to delete this order?')) {
+                fetch('delete_order.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        orderId: orderId
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'success') {
+                        alert('Order deleted successfully');
+                        loadOrders(); // Reload orders
+                    } else {
+                        alert('Error deleting order');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error deleting order');
+                });
+            }
+        }
+
+        // Function to update dashboard stats
+        function updateDashboardStats(orders) {
+            // Calculate total revenue (you'll need to add a price field to your orders table for this)
+            const totalRevenue = orders.reduce((sum, order) => sum + (order.total_price || 0), 0);
+            document.getElementById('totalRevenue').textContent = '₹' + totalRevenue.toLocaleString();
+            
+            // Update charts
+            updateOrderStatusChart(orders);
+            updateRevenueChart(orders);
+        }
+
+        // Function to update order status chart
+        function updateOrderStatusChart(orders) {
+            const statusCounts = {
+                'pending': 0,
+                'processing': 0,
+                'completed': 0,
+                'cancelled': 0
+            };
+            
+            orders.forEach(order => {
+                if (statusCounts.hasOwnProperty(order.status)) {
+                    statusCounts[order.status]++;
+                }
+            });
+            
+            // Update the chart (assuming you have a chart instance)
+            const chart = Chart.getChart('orderStatusChart');
+            if (chart) {
+                chart.data.datasets[0].data = Object.values(statusCounts);
+                chart.update();
+            }
+        }
+
+        // Call loadOrders when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize DataTable
+            $('#ordersTable').DataTable({
+                order: [[0, 'desc']], // Sort by Order ID descending
+                responsive: true
+            });
+            
+            // Load orders
+            loadOrders();
+        });
+    </script>
+</body>
+</html> 
