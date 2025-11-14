@@ -329,7 +329,7 @@ html, body {
     overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
+    transition: all 0.3s ease, max-height 0.3s ease, opacity 0.3s ease;
 }
 
 #mobile-menu.show {
@@ -346,50 +346,72 @@ html, body {
     text-align: left;
 }
 
-
-/* 
-    .footer-bg .btn-whatsapp {
-  display: inline-block;
-  background-color: #22c55e;
-  color: white;
-  padding: 0.5rem 1.25rem;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
+/* Enhanced mobile menu animations */
+@media (max-width: 767px) {
+    #mobile-menu {
+        transform: translateY(-10px);
+    }
+    
+    #mobile-menu.show {
+        transform: translateY(0);
+    }
+    
+    #mobile-menu .px-2.pt-2.pb-3 a {
+        transform: translateX(-10px);
+        opacity: 0;
+        transition: all 0.3s ease 0.1s;
+    }
+    
+    #mobile-menu.show .px-2.pt-2.pb-3 a {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    /* Staggered animation for menu items */
+    #mobile-menu.show .px-2.pt-2.pb-3 a:nth-child(1) {
+        transition-delay: 0.1s;
+    }
+    
+    #mobile-menu.show .px-2.pt-2.pb-3 a:nth-child(2) {
+        transition-delay: 0.15s;
+    }
+    
+    #mobile-menu.show .px-2.pt-2.pb-3 a:nth-child(3) {
+        transition-delay: 0.2s;
+    }
+    
+    #mobile-menu.show .px-2.pt-2.pb-3 a:nth-child(4) {
+        transition-delay: 0.25s;
+    }
+    
+    #mobile-menu.show .px-2.pt-2.pb-3 a:nth-child(5) {
+        transition-delay: 0.3s;
+    }
+    
+    #mobile-menu.show .px-2.pt-2.pb-3 a:nth-child(6) {
+        transition-delay: 0.35s;
+    }
 }
 
-.footer-bg .btn-whatsapp:hover {
-  background-color: #16a34a; 
+/* Improved focus styles for accessibility */
+#mobile-menu-button:focus,
+#mobile-menu a:focus {
+    outline: 2px solid #2E7D32;
+    outline-offset: 2px;
 }
 
-.whatsapp-float {
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  border-radius: 50px;
-  text-align: center;
-  font-size: 30px;
-  box-shadow: 2px 2px 3px #999;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
+/* Ensure mobile menu is properly positioned */
+nav.fixed.w-full {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
+/* Prevent scrolling when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
 }
-
-.whatsapp-icon {
-  width: 40px;
-  height: 40px;
-} */
 
 /* Scroll-to-top button */
 #scrollToTopBtn {
@@ -466,15 +488,6 @@ button, .button {
     overflow-wrap: break-word;
 }
 
-/* Specific styling for back-to-top button to ensure visibility */
-#backToTop {
-    z-index: 99999 !important;
-    position: fixed !important;
-    bottom: 2rem !important;
-    right: 2rem !important;
-    pointer-events: auto !important;
-}
-
 /* Fix for long words in headings */
 h1, h2, h3, h4, h5, h6 {
     word-wrap: break-word;
@@ -492,16 +505,9 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 100%;
 }
 
-/* Ensure back-to-top button visibility */
-#backToTop {
-    z-index: 99999 !important;
-    pointer-events: auto !important;
-}
-
 /* WhatsApp button styles */
 .whatsapp-button {
     position: fixed;
-    bottom: 6rem;
     right: 2rem;
     width: 3rem;
     height: 3rem;
@@ -553,12 +559,6 @@ img, video, iframe, svg, object, embed {
     overflow-x: hidden;
 }
 
-/* Ensure back-to-top button is not hidden by other elements */
-#backToTop {
-    z-index: 9999;
-    position: fixed;
-}
-
 /* Prevent SVG overflow */
 svg {
     max-width: 100%;
@@ -569,6 +569,4 @@ svg {
 #backToTop {
     z-index: 9999 !important;
     position: fixed !important;
-    bottom: 2rem !important;
-    right: 2rem !important;
 }

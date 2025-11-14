@@ -13,75 +13,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <style src="main.css"></style>
+     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full z-50 overflow-x-hidden max-w-full">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+   <nav x-data="{ open: false }" class="bg-white shadow-sm fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
 
-                <!-- Left: Logo + Company Name -->
-                <div class="flex items-center space-x-2">
-                    <!-- Logo Image -->
-                    <a href="index.html" class="flex items-center">
-                        <img 
-                            src="image/logo.png" 
-                            alt="Green Pencils Logo" 
-                            class="h-10 w-auto mr-2"
-                        />
-                        <span class="text-2xl font-['Pacifico'] text-primary">
-                            GreenMate Pencils Ltd
-                        </span>
-                    </a>
-                </div>
+            <!-- Mobile Menu Button -->
+            <button @click="open = !open" class="md:hidden text-gray-700 text-2xl">
+                <i class="ri-menu-line"></i>
+            </button>
 
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary flex items-center">
-                    <i class="ri-menu-line ri-lg"></i>
-                </button>
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="image/logo1.png" class="h-10 w-auto mr-2">
+                <span class="text-2xl font-bold text-primary">GreenMate Pencils Ltd</span>
+            </div>
 
-                <!-- Logo Image -->
-                <a href="index.html" class="flex items-center">
-                    <img 
-                        src="image/logo.png" 
-                        alt="Green Pencils Logo" 
-                        class="h-10 w-auto mr-2"
-                    />
-                    <span class="text-2xl font-['Pacifico'] text-primary">
-                        Green Pencils Ltd
-                    </span>
-                </a>
-
-                <!-- Right: Nav Links -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
-                    <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
-                    <a href="machinery.html" class="text-gray-700 hover:text-primary font-medium">Machinery</a>
-                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
-                    <a href="order.html">
-                        <button class="bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">Get a Quote</button>
-                    </a>
-                </div>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <a href="product.html" class="hover:text-primary">Products</a>
+                <a href="machinery.html" class="hover:text-primary">Machinery</a>
+                <a href="about.html" class="hover:text-primary">About Us</a>
+                <a href="contact.html" class="hover:text-primary">Contact</a>
+                <a href="order.html" class="bg-primary text-white px-6 py-2 rounded-lg">Get a Quote</a>
             </div>
         </div>
+    </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Home</a>
-                <a href="product.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Products</a>
-                <a href="machinery.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Machinery</a>
-                <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">About Us</a>
-                <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">Contact</a>
-                <a href="order.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50">
-                    <button class="w-full bg-primary text-white px-5 py-2 !rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
-                        Get a Quote
-                    </button>
-                </a>
-            </div>
-        </div>
-    </nav>
+    <!-- Mobile Dropdown Menu -->
+    <div 
+        x-show="open" 
+        x-transition.origin.top
+        class="md:hidden bg-white shadow-lg w-full px-4 py-4 space-y-2"
+    >
+        <a href="index.html" class="block py-2 hover:text-primary">Home</a>
+        <a href="product.html" class="block py-2 hover:text-primary">Products</a>
+        <a href="machinery.html" class="block py-2 hover:text-primary">Machinery</a>
+        <a href="about.html" class="block py-2 hover:text-primary">About Us</a>
+        <a href="contact.html" class="block py-2 hover:text-primary">Contact</a>
+        <a href="order.html" class="block py-2 bg-primary text-white rounded-lg text-center">Get a Quote</a>
+    </div>
+</nav>
+
    <!-- Customization Section -->
      <div data-aos="zoom-in">
    <section id="custom" class="py-16 bg-gray-50">
@@ -252,8 +229,6 @@
                         </div>
                     </div>
                     
-                    
-                    
                     <div class="bg-blue-50 p-4 rounded">
                         <h4 class="font-semibold text-gray-900 mb-2">Packing Options</h4>
                         <p class="text-gray-600 mb-2 text-justify">• Paper Boxes(12 pcs)</p>
@@ -267,96 +242,6 @@
     </div>
 </section></div>
     
-    <!-- FAQ Section -->
-    <div data-aos="zoom-in">
-    <section class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto text-justify">Please contact us on <a href="mailto:hi@greenmatepencil.in" class="text-primary hover:underline">hi@greenmatepencil.in</a>, if you cannot find an answer to your question.</p>
-            </div>
-            
-            <!-- FAQ Content -->
-            <div class="bg-white rounded-lg shadow-sm p-6 mb-8">
-                <div class="space-y-4">
-                    <!-- FAQ Item 1 -->
-                    <div class="border-b border-gray-200 pb-4">
-                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
-                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Will my Greenmate pencil break easily?</h3>
-                            <i class="ri-add-line text-primary text-xl"></i>
-                        </button>
-                        <div class="hidden mt-2 text-gray-600 text-justify">
-                            <p class="text-gray-800 mb-8 font-['TimesNewRoman'] text-justify text-lg">Nope! These pencils are super strong and last a long time. They're tested to make sure they don't snap easily and write really smoothly—just like your regular wooden pencil (but cooler and greener!).</p>
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 2 -->
-                    <div class="border-b border-gray-200 pb-4">
-                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
-                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">What happens if my pencil gets wet?</h3>
-                            <i class="ri-add-line text-primary text-xl"></i>
-                        </button>
-                        <div class="hidden mt-2 text-gray-600 text-justify">
-                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Don't worry! Our pencils can handle a little splash and sweat easily. They're water-resistant, so a few drops won't ruin them. Just don't go swimming with it! 😄 if so then let it dry for few hours then all set to go!</p>
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 3 -->
-                    <div class="border-b border-gray-200 pb-4">
-                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
-                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">The colors are so pretty! Are they safe?</h3>
-                            <i class="ri-add-line text-primary text-xl"></i>
-                        </button>
-                        <div class="hidden mt-2 text-gray-600 text-justify">
-                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Yes! We use non-toxic, food-safe colors that are safe for your hands (and even if you accidentally put the pencil in your mouth—we all do it sometimes!).</p>
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 4 -->
-                    <div class="border-b border-gray-200 pb-4">
-                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
-                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Can I sharpen it like my other pencils?</h3>
-                            <i class="ri-add-line text-primary text-xl"></i>
-                        </button>
-                        <div class="hidden mt-2 text-gray-600 text-justify">
-                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Totally! Greenmate pencils sharpen easily with any regular pencil sharpener. No breaking, no mess just a nice point for your writing or drawing.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 5 -->
-                    <div class="border-b border-gray-200 pb-4">
-                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
-                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Can I plant my pencil after using it?</h3>
-                            <i class="ri-add-line text-primary text-xl"></i>
-                        </button>
-                        <div class="hidden mt-2 text-gray-600 text-justify">
-                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Yes! Some of our pencils come with a tiny seed capsule at the end. When your pencil gets too short, just plant it in soil, water it, and watch it grow into a flower, herb, or veggie. It's like magic! 🌱</p>
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 6 -->
-                    <div class="border-b border-gray-200 pb-4">
-                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
-                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Can I choose my favorite color?</h3>
-                            <i class="ri-add-line text-primary text-xl"></i>
-                        </button>
-                        <div class="hidden mt-2 text-gray-600 text-justify">
-                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Yes! Our pencils come in fun, bright colors made with safe food-grade dyes. You can pick your favorite or even collect them all!</p>
-                        </div>
-                    </div>
-                    
-                    <!-- FAQ Item 7 -->
-                    <div class="border-b border-gray-200 pb-4">
-                        <button class="flex justify-between items-center w-full text-left py-2 focus:outline-none">
-                            <h3 class="text-lg font-semibold text-gray-900 font-['Lucida_Bright']">Is my pencil made from trees?</h3>
-                            <i class="ri-add-line text-primary text-xl"></i>
-                        </button>
-                        <div class="hidden mt-2 text-gray-600 text-justify">
-                            <p class="text-gray-600 mb-6 font-['TimesNewRoman'] text-justify text-lg">Nope! Greenmate pencils are made from recycled newspaper, not trees. So every time you use one, you're helping save the forests and protect the Earth. 🌍</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <script>
                 // FAQ accordion functionality
                 document.querySelectorAll('.bg-white.rounded-lg.shadow-sm.p-6.mb-8 button').forEach(button => {
@@ -387,7 +272,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                     <div>
                         <a href="#" class="inline-block mb-4">
-                            <span class="text-2xl font-['Pacifico'] text-white">Green Pencils Ltd</span>
+                            <span class="text-2xl font-['Roboto'] text-white">GreenMate Pencils Ltd</span>
                         </a>
                         <p class="text-gray-400 mb-6 text-justify">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
                         <div class="flex space-x-4">
@@ -592,24 +477,6 @@
                 submitButton.disabled = false;
                 submitText.textContent = 'Request Quote';
                 loadingSpinner.classList.add('hidden');
-            });
-        });
-
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            mobileMenuButton.addEventListener('click', function() {
-                mobileMenu.classList.toggle('hidden');
-            });
-            
-            // Close mobile menu when clicking on a link
-            const mobileLinks = document.querySelectorAll('#mobile-menu a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.add('hidden');
-                });
             });
         });
     </script>

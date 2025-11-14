@@ -13,63 +13,115 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 <body class="bg-white">
     
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm fixed w-full z-50 overflow-x-hidden max-w-full">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
+   <nav x-data="{ open: false }" class="bg-white shadow-sm fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
 
-                <!-- Logo -->
-                <a href="index.html" class="flex items-center">
-                    <img src="image/logo.png" alt="Green Pencils Logo" class="h-10 w-auto mr-2" />
-                    <span class="text-2xl font-['Pacifico'] text-primary">GreenMate Pencils Ltd</span>
-                </a>
+            <!-- Mobile Menu Button -->
+            <button @click="open = !open" class="md:hidden text-gray-700 text-2xl">
+                <i class="ri-menu-line"></i>
+            </button>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-primary font-medium">Home</a>
-                    <a href="product.html" class="text-gray-700 hover:text-primary font-medium">Products</a>
-                    <a href="machinery.html" class="text-gray-700 hover:text-primary font-medium">Machinery</a>
-                    <a href="about.html" class="text-gray-700 hover:text-primary font-medium">About Us</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-primary font-medium">Contact</a>
-                    <a href="order.html">
-                        <button class="bg-primary text-white px-5 py-2 rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
-                            Get a Quote
-                        </button>
-                    </a>
-                </div>
+            <!-- Logo -->
+            <div class="flex items-center">
+                <img src="image/logo1.png" class="h-10 w-auto mr-2">
+                <span class="text-2xl font-bold text-primary">GreenMate Pencils Ltd</span>
+            </div>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden text-gray-700 hover:text-primary flex items-center">
-                    <i class="ri-menu-line ri-lg"></i>
-                </button>
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="hover:text-primary">Home</a>
+                <a href="product.html" class="hover:text-primary">Products</a>
+                <a href="machinery.html" class="hover:text-primary">Machinery</a>
+                <a href="about.html" class="hover:text-primary">About Us</a>
+                <a href="contact.html" class="hover:text-primary">Contact</a>
+                <a href="order.html" class="bg-primary text-white px-6 py-2 rounded-lg">Get a Quote</a>
             </div>
         </div>
+    </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white shadow-lg md:hidden z-50">
-            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Home</a>
-            <a href="product.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Products</a>
-            <a href="machinery.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Machinery</a>
-            <a href="about.html" class="block px-4 py-2 text-gray-700 hover:text-primary">About Us</a>
-            <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:text-primary">Contact</a>
-            <a href="order.html" class="block px-4 py-2">
-                <button class="w-full bg-primary text-white px-5 py-2 rounded-button hover:bg-opacity-90 transition duration-300 whitespace-nowrap">
-                    Get a Quote
-                </button>
-            </a>
-        </div>
-    </nav>
+    <!-- Mobile Dropdown Menu -->
+    <div 
+        x-show="open" 
+        x-transition.origin.top
+        class="md:hidden bg-white shadow-lg w-full px-4 py-4 space-y-2"
+    >
+        <a href="index.html" class="block py-2 hover:text-primary">Home</a>
+        <a href="product.html" class="block py-2 hover:text-primary">Products</a>
+        <a href="machinery.html" class="block py-2 hover:text-primary">Machinery</a>
+        <a href="about.html" class="block py-2 hover:text-primary">About Us</a>
+        <a href="contact.html" class="block py-2 hover:text-primary">Contact</a>
+        <a href="order.html" class="block py-2 bg-primary text-white rounded-lg text-center">Get a Quote</a>
+    </div>
+</nav>
 
-    <!-- Mobile Menu Toggle Script -->
+
     <script>
-        const menuBtn = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const body = document.body;
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            // Toggle mobile menu
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                
+                // Toggle menu visibility
+                if (!isExpanded) {
+                    mobileMenu.classList.remove('opacity-0', 'invisible', '-translate-y-2');
+                    mobileMenu.classList.add('opacity-100', 'visible', 'translate-y-0');
+                    menuBtn.setAttribute('aria-expanded', 'true');
+                    mobileMenu.setAttribute('aria-hidden', 'false');
+                    body.classList.add('menu-open');
+                } else {
+                    mobileMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    mobileMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    body.classList.remove('menu-open');
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = document.querySelectorAll('#mobile-menu a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    mobileMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    body.classList.remove('menu-open');
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (event) => {
+                if (!mobileMenu.contains(event.target) && !menuBtn.contains(event.target) && 
+                    !mobileMenu.classList.contains('opacity-0')) {
+                    mobileMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    mobileMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    body.classList.remove('menu-open');
+                }
+            });
+            
+            // Close mobile menu when pressing Escape key
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !mobileMenu.classList.contains('opacity-0')) {
+                    mobileMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    mobileMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    body.classList.remove('menu-open');
+                    menuBtn.focus(); // Return focus to the menu button
+                }
+            });
         });
     </script>
 
@@ -182,7 +234,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                 <div>
                     <a href="index.html" class="inline-block mb-4">
-                        <span class="text-2xl font-['Pacifico'] text-white">Green Pencils Ltd</span>
+                        <span class="text-2xl font-['Roboto'] text-white">GreenMate Pencils Ltd</span>
                     </a>
                     <p class="text-gray-400 mb-6 text-justify">Our mission is to promote sustainability through innovative, zero-waste writing solutions.</p>
                     <div class="flex space-x-4">
